@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:03:14 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 22:50:11 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/19 23:00:42 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,9 @@ int nbr_str_for_push(char *str, int *i, int *nbr)
 int push_str_in_pile_a(char *str, pile **MaPile)
 {
     int i;
-    int j;
     int nbr;
     
     i = 0;
-    j = 0;
     while (str[i] != '\0')
     {
         if ((nbr_str_for_push(str, &i, &nbr)) == EXIT_FAILURE)
@@ -110,7 +108,7 @@ int push_str_in_pile_a(char *str, pile **MaPile)
 int main()
 {
     pile *MaPile = NULL;
-    char str[100] = " -4 52 88";
+    char str[100] = " -4 52 88 54 45752 7588 1414 -57857875";
     int sortie;
     
     sortie = push_str_in_pile_a(str, &MaPile);
