@@ -6,41 +6,11 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:03:14 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 22:45:49 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/19 22:50:11 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int count_space(char *)
-// {
-//     int i;
-//     int space;
-    
-//     i = 0;
-//     space =0;
-
-//     while (str[i] != '\0')
-//     {
-//         if (str[i] == ' ')
-//             space++;
-//         i++;
-//     }
-//     return (space);
-// }
-
-void	ft_bzero(void *s, size_t n)
-{
-	char	*tmp_s;
-
-	tmp_s = (char *)s;
-	while (n > 0)
-	{
-		*tmp_s = 0;
-		tmp_s++;
-		n--;
-	}
-}
 
 int	ft_atoi(char *str)
 {
@@ -122,9 +92,11 @@ int nbr_str_for_push(char *str, int *i, int *nbr)
 int push_str_in_pile_a(char *str, pile **MaPile)
 {
     int i;
+    int j;
     int nbr;
     
     i = 0;
+    j = 0;
     while (str[i] != '\0')
     {
         if ((nbr_str_for_push(str, &i, &nbr)) == EXIT_FAILURE)
