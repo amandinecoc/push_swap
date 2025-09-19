@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:03:14 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 19:55:53 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:01:17 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,20 @@ int push_str_in_pile_a(char *str, pile **MaPile)
 {
     int i;
     int len_char;
-    // int nbr_pile;
     char nbr[100];
     
     i = 0;
     while (str[i] != '\0')
     {
         len_char = 0;
-        // nbr_pile = 0;
-        if (str[i] == '-' || str[i] == '+')
+        while (str[i] == ' ')
+            i++;
+        while (str[i] == '-' || str[i] == '+')
         {
             nbr[len_char] = str[i];
             len_char++;
-        }
-        while (str[i] == ' ')
             i++;
+        }
         while (str[i] != '\0' && str[i] != ' ')
         {
             if (str[i] >= '0' && str[i] <= '9')
@@ -100,7 +99,7 @@ int push_str_in_pile_a(char *str, pile **MaPile)
         }
         if (len_char >= 0)
             Push(MaPile, ft_atoi(nbr));
-        ft_bzero(nbr, len_char);
+        ft_bzero(nbr, 100);
         i++;
     }
     return (EXIT_SUCCESS);
@@ -109,7 +108,7 @@ int push_str_in_pile_a(char *str, pile **MaPile)
 int main()
 {
     pile *MaPile = NULL;
-    char str[100] = " 23 58 45";
+    char str[100] = "-23 58 -45 ---+8545";
     
     push_str_in_pile_a(str, &MaPile);
     puts("Affichage de la pile :");
