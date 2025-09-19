@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:03:14 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 20:39:01 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/19 22:45:49 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,69 +87,49 @@ int len_next_nbr(char *str, int i)
     }
     return (len);
 }
-int nbr_str_for_push(char *str, int i)
+int nbr_str_for_push(char *str, int *i, int *nbr)
 {
     int j;
     int len;
-    char *nbr;
+    char *nbr1;
     
     j = 0;
-    len = len_next_nbr(str, str[i]);
-    nbr = malloc(sizeof(char) * len + 1);
-    while (str[i] == ' ')
-        i++;
-    while (str[i] == '-' || str[i] == '+')
+    len = len_next_nbr(str, str[*i]);
+    nbr1 = malloc(sizeof(char) * len + 1);
+    while (str[*i] == ' ')
+        *i = *i + 1;
+    while (str[*i] == '-' || str[*i] == '+')
     {
-        nbr[j] = str[i];
+        nbr1[j] = str[*i];
         j++;
-        i++;
+        *i = *i + 1;
     }
-    while (str[i] != '\0' && str[i] != ' ')
+    while (str[*i] != '\0' && str[*i] != ' ')
     {
-        if (str[i] >= '0' && str[i] <= '9')
+        if (str[*i] >= '0' && str[*i] <= '9')
         {
-            nbr[j] = str[i];
+            nbr1[j] = str[*i];
             j++;
-            i++;
+            *i = *i + 1;
         }
         else 
             return (EXIT_FAILURE);
     }
-    return (ft_atoi(nbr));
+    *nbr = ft_atoi(nbr1);
+    return (EXIT_SUCCESS);
 }
 
 int push_str_in_pile_a(char *str, pile **MaPile)
 {
     int i;
-    int len_char;
-    char nbr[100];
+    int nbr;
     
     i = 0;
     while (str[i] != '\0')
     {
-        len_char = 0;
-        while (str[i] == ' ')
-            i++;
-        while (str[i] == '-' || str[i] == '+')
-        {
-            nbr[len_char] = str[i];
-            len_char++;
-            i++;
-        }
-        while (str[i] != '\0' && str[i] != ' ')
-        {
-            if (str[i] >= '0' && str[i] <= '9')
-            {
-                nbr[len_char] = str[i];
-                len_char++;
-                i++;
-            }
-            else 
-                return (EXIT_FAILURE);
-        }
-        if (len_char > 0)
-            Push(MaPile, ft_atoi(nbr));
-        ft_bzero(nbr, 100);
+        if ((nbr_str_for_push(str, &i, &nbr)) == EXIT_FAILURE)
+            return (EXIT_FAILURE);
+        Push(MaPile, nbr);
         i++;
     }
     return (EXIT_SUCCESS);
@@ -158,7 +138,7 @@ int push_str_in_pile_a(char *str, pile **MaPile)
 int main()
 {
     pile *MaPile = NULL;
-    char str[100] = "+++++++++4 -85";
+    char str[100] = " -4 52 88";
     int sortie;
     
     sortie = push_str_in_pile_a(str, &MaPile);
