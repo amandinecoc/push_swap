@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:03:14 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 20:01:17 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:07:28 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int push_str_in_pile_a(char *str, pile **MaPile)
             else 
                 return (EXIT_FAILURE);
         }
-        if (len_char >= 0)
+        if (len_char > 0)
             Push(MaPile, ft_atoi(nbr));
         ft_bzero(nbr, 100);
         i++;
@@ -108,9 +108,15 @@ int push_str_in_pile_a(char *str, pile **MaPile)
 int main()
 {
     pile *MaPile = NULL;
-    char str[100] = "-23 58 -45 ---+8545";
+    char str[100] = "+++++++++4 -85";
+    int sortie;
     
-    push_str_in_pile_a(str, &MaPile);
+    sortie = push_str_in_pile_a(str, &MaPile);
+    if (sortie == EXIT_FAILURE)
+    {
+        printf("error\n");
+        return (1);
+    }
     puts("Affichage de la pile :");
     View(MaPile);       /* Affiche la totalité de la pile. */
     puts("------");
