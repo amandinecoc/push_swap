@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:03:14 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 20:07:28 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/19 20:39:01 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,56 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (sign * res);
+}
+
+int len_next_nbr(char *str, int i)
+{
+    int len;
+
+    len = 0;
+    while (str[i] == ' ')
+        i++;
+    while (str[i] == '-' || str[i] == '+')
+    {
+        len++;
+        i++;
+    }
+    while (str[i] >= '0' && str[i] <= '9')
+    {
+        len++;
+        i++;
+    }
+    return (len);
+}
+int nbr_str_for_push(char *str, int i)
+{
+    int j;
+    int len;
+    char *nbr;
+    
+    j = 0;
+    len = len_next_nbr(str, str[i]);
+    nbr = malloc(sizeof(char) * len + 1);
+    while (str[i] == ' ')
+        i++;
+    while (str[i] == '-' || str[i] == '+')
+    {
+        nbr[j] = str[i];
+        j++;
+        i++;
+    }
+    while (str[i] != '\0' && str[i] != ' ')
+    {
+        if (str[i] >= '0' && str[i] <= '9')
+        {
+            nbr[j] = str[i];
+            j++;
+            i++;
+        }
+        else 
+            return (EXIT_FAILURE);
+    }
+    return (ft_atoi(nbr));
 }
 
 int push_str_in_pile_a(char *str, pile **MaPile)
