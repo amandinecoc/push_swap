@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/25 17:19:41 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:28:09 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ int	*create_sorted_index_tab(int *tab_input, int *tab_sorted, int len)
 			if (tab_input[i] == tab_sorted[j])
 			{
 				tab_index[i] = j;
-				// printf("tab_index[%d] = %d\n", i, j);
 			}
 			j++;
 		}
@@ -157,6 +156,7 @@ void free_tab_str(char **tab_str, int len)
     i = 0;
     while (i < len)
         free(tab_str[i++]);
+    free(tab_str);
 }
 
 int	push_swap(char **tab_str)
@@ -168,28 +168,28 @@ int	push_swap(char **tab_str)
 
 	i = 0;
 	len = len_tab(tab_str);
-	tab_input = malloc(sizeof(int) * len);
+	tab_input = // fonction input 
+    malloc(sizeof(int) * len);
 	if (!tab_input)
 		return (malloc_failure);
-	while (tab_str[i] != NULL)
-	{
-		if (check_digit_and_handle_error(tab_str[i]) == Success)
-			i++;
-		else
-			return (free_tab_str(tab_str, len), free(tab_input), free(tab_str), digit_failure);  
-	}
+	// while (tab_str[i] != NULL)
+	// {
+	// 	if (check_digit_and_handle_error(tab_str[i]) == Success)
+	// 		i++;
+	// 	else
+			// return (free_tab_str(tab_str, len), free(tab_input), free(tab_str), digit_failure);             // sous fonction -> in check digit  
+	// }
 	i = 0;
 	while (i < len)
 	{
-		tab_input[i] = ft_atoll(tab_str[i]);
-			//gerer int min et int max const char *nptr
+		tab_input[i] = ft_atoll(tab_str[i]);                                                                    //                     ^
+			//gerer int min et int max                                                                          // sous fonction input |
 		i++;
 	}
     free_tab_str(tab_str, len);
-    free(tab_str);
 	if (check_duplicata_value(tab_input, len) == double_failure)
 		return (free(tab_input), double_failure);                                   
-	if (check_sorted_tab(tab_input, len) == already_sorted)                         //ne fonctionne pas return success tout le temps
+	if (check_sorted_tab(tab_input, len) == already_sorted)                       
 		return (free(tab_input), already_sorted);
 	tab_index = tab_index_handler(tab_input, len);
 	if (tab_index == NULL)
@@ -220,7 +220,7 @@ int	main(int argc, char **argv)
 
 	i = 2;
 	if (argc <= 1)
-		return (EXIT_FAILURE);                                 //no leacks are possible
+		return (EXIT_FAILURE); 
 	str = ft_strdup(argv[1]);
 	if (argc > 2)
 	{
