@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/25 17:15:49 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/25 17:19:41 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	check_sorted_tab(int *tab, int len)
 	int	i;
 
 	i = 0;
-	while (i < len)
+	while (i < (len - 1))
 	{
 		if (tab[i] > tab[i + 1])
 			return (Success);
@@ -176,7 +176,7 @@ int	push_swap(char **tab_str)
 		if (check_digit_and_handle_error(tab_str[i]) == Success)
 			i++;
 		else
-			return (free_tab_str(tab_str, len), free(tab_input), free(tab_str), digit_failure);    //no leaks are possible
+			return (free_tab_str(tab_str, len), free(tab_input), free(tab_str), digit_failure);  
 	}
 	i = 0;
 	while (i < len)
@@ -188,8 +188,8 @@ int	push_swap(char **tab_str)
     free_tab_str(tab_str, len);
     free(tab_str);
 	if (check_duplicata_value(tab_input, len) == double_failure)
-		return (free(tab_input), double_failure);                                     //no leaks are possible
-	if (check_sorted_tab(tab_input, len) == already_sorted)
+		return (free(tab_input), double_failure);                                   
+	if (check_sorted_tab(tab_input, len) == already_sorted)                         //ne fonctionne pas return success tout le temps
 		return (free(tab_input), already_sorted);
 	tab_index = tab_index_handler(tab_input, len);
 	if (tab_index == NULL)
