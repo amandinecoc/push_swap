@@ -3,34 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 14:54:12 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/19 22:58:45 by acocoual         ###   ########.fr       */
+/*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
+/*   Updated: 2025/09/25 01:06:00 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <stdlib.h>
-#include <stdio.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft/libft.h"
 
-typedef struct pile
+typedef enum
 {
-    int valeur;
-    struct pile *prec;
-} pile;
+    Success,
+    digit_failure,
+    double_failure,
+    already_sorted,
+    malloc_failure,
+}error;
 
-/*  Push empile une valeur sur la pile. */
-void Push(pile **, int);
-/*  Pop retire la dernière valeur empilée sur la pile. */
- int Pop(pile **);
-/*  Clear vide la pile. */
-void Clear(pile **);
-/*  Length retourne le nombre d'éléments de la pile. */
-int Length(pile *p);
-/*  Affiche la totalité de la pile en commençant par le sommet. */
-void View(pile *);
 
 #endif
