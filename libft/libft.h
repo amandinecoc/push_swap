@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 16:26:42 by acocoual          #+#    #+#             */
-/*   Updated: 2025/06/17 20:56:37 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/25 13:48:04 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+long long		ft_atoll(const char *nptr);
 // Bonus
 // t_list *ft_lstnew(void *content);
 // void ft_lstadd_front(t_list **lst, t_list *new);

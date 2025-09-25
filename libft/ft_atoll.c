@@ -6,13 +6,13 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 13:40:55 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/25 13:43:51 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/25 13:47:17 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long atoll(const char *nptr)
+long long ft_atoll(const char *nptr)
 {
     int	i;
 	long long	sign;

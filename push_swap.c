@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/25 13:45:34 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/25 13:46:39 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ int push_swap(char **tab_str)
     i = 0;
     while (i < len)
     {
-        tab_input[i] = ft_atoll(tab_str[i]);         //gerer int min et int max
+        tab_input[i] = ft_atoll(tab_str[i]);         //gerer int min et int max const char *nptr
         i++;
     }
     if (check_duplicata_value(tab_input, len) == double_failure)
