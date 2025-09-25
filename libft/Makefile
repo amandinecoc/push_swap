@@ -6,7 +6,7 @@
 #    By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/22 20:26:37 by amandine          #+#    #+#              #
-#    Updated: 2025/06/17 21:40:30 by acocoual         ###   ########.fr        #
+#    Updated: 2025/09/25 13:44:09 by acocoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRCS += ft_strjoin.c
 SRCS += ft_strmapi.c
 SRCS += ft_strtrim.c
 SRCS += ft_substr.c
+SRCS += ft_atoll.c
 
 NAME := libft.a
 

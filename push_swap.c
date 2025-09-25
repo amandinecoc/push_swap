@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/25 01:07:40 by amandine         ###   ########.fr       */
+/*   Updated: 2025/09/25 13:45:34 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,6 @@ int check_duplicata_value(int *tab, int len)
     i = 0;
     while (i != len)
     {
-        // j = 0;
-        // while (j < i)
-        // {
-        //     if (tab[i] == tab[j])
-        //         return (EXIT_FAILURE);           //pottentiellement inutile
-        //     j++;
-        // }
         j = i + 1 ;
         while (j != len)
         {
@@ -105,10 +98,6 @@ int *sort_int_tab(int *tab_sorted, int len)
         }
         i++;
     }
-    // printf("tab_sorted[0] = %d\n", tab_sorted[0]);
-    // printf("tab_sorted[1] = %d\n", tab_sorted[1]);
-    // printf("tab_sorted[2] = %d\n", tab_sorted[2]);
-    // printf("tab_sorted[3] = %d\n", tab_sorted[3]);
     return (tab_sorted);
 }
 
@@ -146,10 +135,6 @@ int *tab_index_handler(int *tab_input, int len)
     int i;
 
     i = 0;
-    printf("tab input[0] = %d\n", tab_input[0]);
-    printf("tab input[1] = %d\n", tab_input[1]);
-    printf("tab input[2] = %d\n", tab_input[2]);
-    printf("tab input[3] = %d\n\n", tab_input[3]);
     tab_sorted = malloc(sizeof(char) * len);
     if (!tab_sorted)
         return (NULL);
@@ -158,25 +143,10 @@ int *tab_index_handler(int *tab_input, int len)
         tab_sorted[i] = tab_input[i];
         i++;
     }
-    //dupplicate tab input in tab sorted with malloc
-    
     sort_int_tab(tab_sorted, len); 
-    printf("tab_sorted[0] = %d\n", tab_sorted[0]);
-    printf("tab_sorted[1] = %d\n", tab_sorted[1]);
-    printf("tab_sorted[2] = %d\n", tab_sorted[2]);
-    printf("tab_sorted[3] = %d\n\n", tab_sorted[3]);
-    
-
     tab_index = create_sorted_index_tab(tab_input, tab_sorted, len);
     free(tab_input);
     free(tab_sorted);
-    
-    // printf("\n");
-    // printf("tab_index[0] = %d\n", tab_index[0]);
-    // printf("tab_index[1] = %d\n", tab_index[1]);
-    // printf("tab_index[2] = %d\n", tab_index[2]);
-    // printf("tab_index[3] = %d\n", tab_index[3]);
-    
     return (tab_index);
 }
 
@@ -189,7 +159,6 @@ int push_swap(char **tab_str)
 
     i = 0;
     len = len_tab(tab_str);
-    // printf("len = %d", len);
     tab_input = malloc(sizeof(int) * len);
     if (!tab_input)
         return (malloc_failure);
@@ -200,14 +169,12 @@ int push_swap(char **tab_str)
         else
             return (digit_failure);
     }
-    // printf("%s", tab[1]);
     i = 0;
     while (i < len)
     {
-        tab_input[i] = ft_atoi(tab_str[i]);                 //Atoll
+        tab_input[i] = ft_atoll(tab_str[i]);         //gerer int min et int max
         i++;
     }
-    // printf("tab2[0] == %d\n", tab2[0]);
     if (check_duplicata_value(tab_input, len) == double_failure)
         return (double_failure);
     if (check_sorted_tab(tab_input, len) == already_sorted)
@@ -216,7 +183,6 @@ int push_swap(char **tab_str)
     if (tab_index == NULL)
         return (malloc_failure);
     free(tab_input);
-    // printf("tab2[0] == %d\n", tab2[0]);
     return (Success);
 }
 
@@ -252,12 +218,10 @@ int main(int argc, char **argv)
             free(temp);
         }
     }
-    // printf("%s\n", str);
     tab_str = ft_split(str, ' ');
     free(str);
     if (tab_str == NULL)
         return (malloc_failure);
-    // printf("%s", tab[0]);
     status = push_swap(tab_str);
     ft_printerror(status);
     return (status);

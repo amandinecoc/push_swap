@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
+#    By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/09/24 00:41:29 by amandine         ###   ########.fr        #
+#    Updated: 2025/09/25 13:44:32 by acocoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SOURCES_LIBFT += libft/ft_strjoin.c
 SOURCES_LIBFT += libft/ft_strmapi.c
 SOURCES_LIBFT += libft/ft_strtrim.c
 SOURCES_LIBFT += libft/ft_substr.c
+SOURCES_LIBFT += libft/ft_atoll.c
 
 SOURCES_PUSH_SWAP = *.c
 
