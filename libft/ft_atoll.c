@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 13:40:55 by acocoual          #+#    #+#             */
-/*   Updated: 2025/09/25 13:47:17 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:57:46 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long ft_atoll(const char *nptr)
+long long	ft_atoll(const char *nptr)
 {
-    int	i;
+	int			i;
 	long long	sign;
 	long long	res;
 

@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:45:36 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/26 11:45:38 by amandine         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:55:58 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	check_digit_and_handle_error(char **tab_str)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (tab_str[i] != NULL)
 	{
 		j = 0;
 		if (tab_str[i][j] == '+' || tab_str[i][j] == '-')
-		j++;
+			j++;
 		while (tab_str[i][j] != '\0')
 		{
 			if (ft_isdigit(tab_str[i][j]) == 1)
