@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/26 11:59:26 by amandine         ###   ########.fr       */
+/*   Updated: 2025/09/28 15:38:31 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,19 @@ typedef enum s_status
 	malloc_failure,
 	limit_failure,
 }		t_status;
+
+typedef struct elem
+{
+    int value;
+    struct elem *p_prev;
+    struct elem *p_next;
+} elem ;
+
+typedef struct list_a
+{
+    size_t length;
+    struct elem *p_last;
+    struct elem *p_first;
+} list_a;
 
 #endif
