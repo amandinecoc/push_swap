@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:47:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/26 11:50:26 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/02 19:35:53 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	*create_sorted_index_tab(int *tab_input, int *tab_sorted, int len)
 	tab_index = malloc(sizeof(int) * len);
 	if (!tab_index)
 		return (NULL);
-	while (i <= (len - 1))
+	while (i < len)
 	{
 		j = 0;
-		while (j <= (len - 1))
+		while (j < len)
 		{
 			if (tab_input[i] == tab_sorted[j])
 			{
@@ -66,13 +66,13 @@ int	*sort_int_tab(int *tab_sorted, int len)
 
 	i = 0;
 	temp = 0;
-	while (i <= (len - 1))
+	while (i < len)
 	{
 		j = i + 1;
-		while (j <= (len - 1))
+		while (j < len)
 		{
 			temp = tab_sorted[i];
-			while (temp > tab_sorted[j] && j <= (len - 1))
+			while (j < len && temp > tab_sorted[j])
 			{
 				temp = tab_sorted[j];
 				tab_sorted[j] = tab_sorted[i];
@@ -93,7 +93,7 @@ int	*tab_index_handler(int *tab_input, int len)
 	int	i;
 
 	i = 0;
-	tab_sorted = malloc(sizeof(char) * len);
+	tab_sorted = malloc(sizeof(int) * len);
 	if (!tab_sorted)
 		return (NULL);
 	while (i < len)

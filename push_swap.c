@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/26 11:49:37 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/02 19:55:36 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 int	push_swap(char **tab_str)
 {
 	int	len;
+	int i;
 	int	*tab_input;
 	int	*tab_index;
+	t_list *list_a;
 
+	i = 0;
 	len = len_tab(tab_str);
 	tab_input = malloc(sizeof(int) * len);
 	if (!tab_input)
@@ -35,6 +38,14 @@ int	push_swap(char **tab_str)
 	tab_index = tab_index_handler(tab_input, len);
 	if (tab_index == NULL)
 		return (free(tab_input), malloc_failure);
+	while (i < len)
+	{
+		if (i == 0)
+			list_a = list_new(tab_index[i++]);
+		else
+			list_add_back(&list_a, tab_index[i++]);
+	}
+	// print_list(list_a);
 	free(tab_index);
 	return (Success);
 }

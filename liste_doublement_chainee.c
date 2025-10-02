@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 22:04:33 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/28 15:35:28 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/02 19:08:05 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,32 +94,32 @@
 
 //Liberer une liste
 
-void list_a_delete(list_a **p_list)
-{
-    if (*p_list != NULL)
-    {
-        struct nbr *p_temp = (*p_list)->p_first;
-        while (p_temp != NULL)
-        {
-            struct nbr *p_del = p_temp;
-            p_temp = p_temp->p_next;
-            free(p_del);
-        }
-        free(*p_list), *p_list = NULL;
-    }
-}
+// void list_a_delete(list_a **p_list)
+// {
+//     if (*p_list != NULL)
+//     {
+//         struct nbr *p_temp = (*p_list)->p_first;
+//         while (p_temp != NULL)
+//         {
+//             struct nbr *p_del = p_temp;
+//             p_temp = p_temp->p_next;
+//             free(p_del);
+//         }
+//         free(*p_list), *p_list = NULL;
+//     }
+// }
 
 //taille de la liste chainee
 
-size_t list_a_length(list_a *p_list)
-{
-    size_t ret = 0;
-    if (p_list != NULL)
-    {
-        ret = p_list->length;
-    }
-    return ret;
-}
+// size_t list_a_length(list_a *p_list)
+// {
+//     size_t ret = 0;
+//     if (p_list != NULL)
+//     {
+//         ret = p_list->length;
+//     }
+//     return ret;
+// }
 
 //Recherche un élément selon sa valeur
 

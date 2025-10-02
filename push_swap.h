@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/28 15:38:31 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/02 19:39:16 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		*create_sorted_index_tab(int *tab_input, int *tab_sorted, int len);
 int		*sort_int_tab(int *tab_sorted, int len);
 int		*tab_index_handler(int *tab_input, int len);
 
-typedef enum s_status
+typedef enum e_status
 {
 	Success,
 	digit_failure,
@@ -40,18 +40,23 @@ typedef enum s_status
 	limit_failure,
 }		t_status;
 
-typedef struct elem
+typedef struct s_list
 {
     int value;
-    struct elem *p_prev;
-    struct elem *p_next;
-} elem ;
+    struct s_list *p_prev;
+    struct s_list *p_next;
+} t_list ;
 
-typedef struct list_a
-{
-    size_t length;
-    struct elem *p_last;
-    struct elem *p_first;
-} list_a;
+// typedef struct s_list
+// {
+//     size_t length;
+//     struct elem *p_last;
+//     struct elem *p_first;
+// } t_list;
+
+t_list *list_new(int content);
+void    list_add_back(t_list **p_list, int value);
+void print_list(t_list *list_n);
+
 
 #endif
