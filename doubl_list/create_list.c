@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:33:04 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/03 03:02:51 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/03 15:58:14 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,27 @@ t_list *list_new(int content)
     return p_new;
 }
 
-void    list_add_back(t_list **p_list, int value)
+void    list_add_back(t_list **list, int value)
 {
     t_list *elem;
 
-    if (p_list == NULL)
+    if (list == NULL)
         return;
     elem = list_new(value);
     if (elem == NULL)
         return;
-    while((*p_list)->p_next != NULL)
-        (*p_list) = (*p_list)->p_next;
-    (*p_list)->p_next = elem;
-    elem->p_prev = (*p_list);
+    (*list) = pointer_last(*list);
+    (*list)->p_next = elem;
+    elem->p_prev = (*list);
 }
 
-void print_list(t_list *list)
+void print_list(t_list **list)
 {
-    
-    while(list->p_prev != NULL)
-        list = list->p_prev;
-    while(list->p_next != NULL)
+    (*list) = pointer_first(*list);
+    while((*list)->p_next != NULL)
     {
-        printf("elem %d\n",list->value);
-        list = list->p_next;
+        printf("elem %d\n",(*list)->value);
+        (*list) = (*list)->p_next;
     }
-    printf("elem %d\n",list->value);
+    printf("elem %d\n",(*list)->value);
 }
