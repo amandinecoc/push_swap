@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+         #
+#    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/09/25 13:44:32 by acocoual         ###   ########.fr        #
+#    Updated: 2025/10/03 03:03:35 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,9 @@ SOURCES_LIBFT += libft/ft_strtrim.c
 SOURCES_LIBFT += libft/ft_substr.c
 SOURCES_LIBFT += libft/ft_atoll.c
 
-SOURCES_PUSH_SWAP = *.c
+SOURCES_PUSH_SWAP += *.c
+SOURCES_PUSH_SWAP += parsing/*.c
+SOURCES_PUSH_SWAP += doubl_list/*.c
 
 #Objets#####################################
 #PATH = obj/
@@ -64,7 +66,7 @@ OBJ = *.o
 INCLUDES_LIBFT =
 # Libft/libft.h
 INCLUDES =
-# Push_Swap.h
+# push_swap.h
 
 #Compilation################################
 CC = cc
