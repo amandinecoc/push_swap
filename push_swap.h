@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/03 17:17:30 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/03 21:30:55 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ typedef struct s_list
 	struct s_list	*p_next;
 }					t_list;
 
+typedef enum e_write_status
+{
+	write = 1,
+	not_write = 0,
+}					t_write_status;
+
 /* ************************************************************************** */
 /*PARSING*/
 int					check_digit_and_handle_error(char **tab_str);
@@ -65,12 +71,9 @@ int					lenght_list(t_list *list);
 
 /* ************************************************************************** */
 /*COMMAND*/
+void swap_a(t_list *list_a, t_write_status status);
+void swap_b(t_list *list_b, t_write_status status);
+void swap_swap(t_list *list_a, t_list *list_b);
 
-// typedef struct s_list
-// {
-//     size_t length;
-//     struct elem *p_last;
-//     struct elem *p_first;
-// } t_list;
 
 #endif
