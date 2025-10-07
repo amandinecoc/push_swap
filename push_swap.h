@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/03 21:30:55 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:26:16 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_list
 
 typedef enum e_write_status
 {
-	write = 1,
+	yes_write = 1,
 	not_write = 0,
 }					t_write_status;
 
@@ -74,6 +74,9 @@ int					lenght_list(t_list *list);
 void swap_a(t_list *list_a, t_write_status status);
 void swap_b(t_list *list_b, t_write_status status);
 void swap_swap(t_list *list_a, t_list *list_b);
+void rotate_a(t_list *list_a, t_write_status status);
+void rotate_b(t_list *list_b, t_write_status status);
+void rotate_rotate(t_list *list_a, t_list *list_b);
 
 
 #endif

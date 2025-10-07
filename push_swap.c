@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/03 17:17:49 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:27:47 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	push_swap(char **tab_str)
 		else
 			list_add_back(list_a, tab_index[i++]);
 	}
+	print_list(list_a);
+	rotate_a(list_a, yes_write);
 	print_list(list_a);
 	free(tab_index);
 	return (Success);
