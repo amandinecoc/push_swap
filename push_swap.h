@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/07 13:36:47 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/07 14:08:53 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,8 @@ void				rotate_rotate(t_list *list_a, t_list *list_b);
 void				reverse_rotate_a(t_list *list_a, t_write_status status);
 void				reverse_rotate_b(t_list *list_b, t_write_status status);
 void				reverse_rotate_rotate(t_list *list_a, t_list *list_b);
+void				push_a(t_list *list_a, t_list *list_b);
+void				push_b(t_list *list_a, t_list *list_b);
+
 
 #endif
