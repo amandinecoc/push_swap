@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/07 13:26:16 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/07 13:36:47 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,14 @@ int					lenght_list(t_list *list);
 
 /* ************************************************************************** */
 /*COMMAND*/
-void swap_a(t_list *list_a, t_write_status status);
-void swap_b(t_list *list_b, t_write_status status);
-void swap_swap(t_list *list_a, t_list *list_b);
-void rotate_a(t_list *list_a, t_write_status status);
-void rotate_b(t_list *list_b, t_write_status status);
-void rotate_rotate(t_list *list_a, t_list *list_b);
-
+void				swap_a(t_list *list_a, t_write_status status);
+void				swap_b(t_list *list_b, t_write_status status);
+void				swap_swap(t_list *list_a, t_list *list_b);
+void				rotate_a(t_list *list_a, t_write_status status);
+void				rotate_b(t_list *list_b, t_write_status status);
+void				rotate_rotate(t_list *list_a, t_list *list_b);
+void				reverse_rotate_a(t_list *list_a, t_write_status status);
+void				reverse_rotate_b(t_list *list_b, t_write_status status);
+void				reverse_rotate_rotate(t_list *list_a, t_list *list_b);
 
 #endif
