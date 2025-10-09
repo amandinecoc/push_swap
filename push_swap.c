@@ -6,22 +6,90 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 17:57:04 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:50:02 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void fill_list_b_in_list_a_and_sort(t_list *list_a, t_list *list_b)
+void fill_three_last(t_list *list_a)
+{
+	int value;
+	
+	list_a = pointer_first(list_a);
+	value = list_a;
+	list_a = pointer_last(list_a);
+	if (list_a->value == (value + 1))
+		reverse_rotate_a(list_a, yes_write);
+	if (list_a->value > value)
+	{
+		reverse_rotate_a(list_a, yes_write);
+		swap_a(list_a, yes_write);
+	}
+}
+
+int pos_of_max_value(t_list *list_b)
+{
+	int i;
+	int pos;
+	int value;
+	
+	i = 0;
+	list_b = pointer_first(list_b);
+	value = list_b->value;
+	pos = i;
+	while (list_b->p_next != NULL)
+	{
+		list_b = list_b->p_next;
+		i++;
+		if (list_b->value > value)
+		{
+			value = list_b->value;
+			pos = i;
+		}
+	}
+	return (pos);
+}
+
+void fill_max_value_list_b_in_list_a(list_a, list_b)
 {
 	int len;
 	int pos;
 	
 	len = lenght_list(list_b);
+	pos = pos_of_max_value(list_b);
+	if (pos > (len / 2))
+	{
+		while (pos <= len)
+		{
+			reverse_rotate_b(list_b, yes_write);
+			pos++;
+		}
+		push_b(list_a, list_b);
+	}
+	// else
+	if (pos <= (len / 2))
+	{
+		while (pos < 0)
+		{
+			rotate_b(list_b, yes_write);
+			pos--;
+		}
+		push_b(list_a, list_b);
+	}
+}
+
+void fill_list_b_in_list_a_and_sort(t_list *list_a, t_list *list_b)
+{
+	int len;
+	
+	len = lenght_list(list_b);
 	while (len > 0)
 	{
 		list_b = pointer_first(list_b);
-		pos = pos_of_max_value(list_b);
+		fill_max_value_list_b_in_list_a(list_a, list_b);
+		fill_three_last(list_a);
+		len = lenght_list(list_b);
 	}
 }
 
@@ -61,6 +129,7 @@ int	code(t_list *list_a)
 	// gerer attribution window ---fonction
 	create_and_fill_list_b(list_a, list_b, &min_w, &max_w);
 	sort_three(list_a);
+	fill_list_b_in_list_a_and_sort(list_a, list_b);
 }
 
 int	push_swap(char **tab_str, int status)
