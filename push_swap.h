@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 17:55:06 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 22:25:42 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ typedef enum e_write_status
 int					check_digit_and_handle_error(char **tab_str);
 int					check_sorted_tab(int *tab, int len);
 int					check_duplicata_value(int *tab, int len);
-int	check_is_not_int_min_max_and_str_to_int(char **tab_str,
-											int len,
-											int *tab_input);
+int					check_is_not_int_min_max_and_str_to_int(char **tab_str,
+						int len, int *tab_input);
 void				ft_printerror(int status);
 void				free_tab_str(char **tab_str, int len);
 int					len_tab(char **tab);
@@ -84,11 +83,21 @@ void				rotate_rotate(t_list *list_a, t_list *list_b);
 void				reverse_rotate_a(t_list *list_a, t_write_status status);
 void				reverse_rotate_b(t_list *list_b, t_write_status status);
 void				reverse_rotate_rotate(t_list *list_a, t_list *list_b);
-void				push_a(t_list *list_a, t_list *list_b);
-void				push_b(t_list *list_a, t_list *list_b);
+t_list				*push_a(t_list *list_a, t_list *list_b);
+t_list				*push_b(t_list *list_a, t_list *list_b);
 
 /* ************************************************************************** */
 /*ALGO*/
 void				sort_three(t_list *list);
+int					push_swap(char **tab_str, int status);
+void				code(t_list *list_a);
+void				create_and_fill_list_b(t_list **list_a, t_list **list_b,
+						int min_w, int max_w);
+void				fill_list_b_in_list_a_and_sort(t_list *list_a,
+						t_list *list_b);
+void				fill_max_value_list_b_in_list_a(t_list *list_a,
+						t_list *list_b);
+int					pos_of_max_value(t_list *list_b);
+void				fill_three_last(t_list *list_a);
 
 #endif

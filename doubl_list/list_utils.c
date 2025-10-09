@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:41:14 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/07 14:13:19 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/09 22:01:01 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ int	lenght_list(t_list *list)
 		list = list->p_next;
 		len++;
 	}
-	return (len);
+	return (++len);
 }

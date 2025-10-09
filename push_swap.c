@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 18:52:53 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 22:25:34 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void fill_three_last(t_list *list_a)
+void	fill_three_last(t_list *list_a)
 {
-	int value;
-	
+	int	value;
+
 	list_a = pointer_first(list_a);
-	value = list_a;
+	value = list_a->value;
 	list_a = pointer_last(list_a);
 	if (list_a->value > value)
 	{
@@ -28,12 +28,12 @@ void fill_three_last(t_list *list_a)
 		reverse_rotate_a(list_a, yes_write);
 }
 
-int pos_of_max_value(t_list *list_b)
+int	pos_of_max_value(t_list *list_b)
 {
-	int i;
-	int pos;
-	int value;
-	
+	int	i;
+	int	pos;
+	int	value;
+
 	i = 0;
 	list_b = pointer_first(list_b);
 	value = list_b->value;
@@ -51,11 +51,11 @@ int pos_of_max_value(t_list *list_b)
 	return (pos);
 }
 
-void fill_max_value_list_b_in_list_a(list_a, list_b)
+void	fill_max_value_list_b_in_list_a(t_list *list_a, t_list *list_b)
 {
-	int len;
-	int pos;
-	
+	int	len;
+	int	pos;
+
 	len = lenght_list(list_b);
 	pos = pos_of_max_value(list_b);
 	if (pos > (len / 2))
@@ -65,7 +65,7 @@ void fill_max_value_list_b_in_list_a(list_a, list_b)
 			reverse_rotate_b(list_b, yes_write);
 			pos++;
 		}
-		push_b(list_a, list_b);
+		list_a = push_b(list_a, list_b);
 	}
 	// else
 	if (pos <= (len / 2))
@@ -75,14 +75,14 @@ void fill_max_value_list_b_in_list_a(list_a, list_b)
 			rotate_b(list_b, yes_write);
 			pos--;
 		}
-		push_b(list_a, list_b);
+		list_a = push_b(list_a, list_b);
 	}
 }
 
-void fill_list_b_in_list_a_and_sort(t_list *list_a, t_list *list_b)
+void	fill_list_b_in_list_a_and_sort(t_list *list_a, t_list *list_b)
 {
-	int len;
-	
+	int	len;
+
 	len = lenght_list(list_b);
 	while (len > 0)
 	{
@@ -93,41 +93,48 @@ void fill_list_b_in_list_a_and_sort(t_list *list_a, t_list *list_b)
 	}
 }
 
-void	create_and_fill_list_b(t_list *list_a, t_list *list_b, int *min_w,
-		int *max_w)
+void	create_and_fill_list_b(t_list **list_a, t_list **list_b, int min_w,
+		int max_w)
 {
 	int	len;
 
-	len = lenght_list(list_a);
-	while (len >= 3)
+	len = lenght_list(*list_a);
+	while (len > 3)
 	{
-		list_a = pointer_first(list_a);
-		if (list_a < *min_w)
+		*list_a = pointer_first(*list_a);
+		if ((*list_a)->value < min_w)
 		{
-			push_b(list_a, list_b);
-			reverse_rotate_b(list_b, yes_write);
+			*list_a = push_b(*list_a, *list_b);
+			reverse_rotate_b(*list_b, yes_write);
 		}
-		else if (list_a->value >= *min_w && list_a->value <= *max_w)
+		else if ((*list_a)->value >= min_w && (*list_a)->value <= max_w)
 		{
-			push_b(list_a, list_b);
-			*min_w++;
-			*max_w++;
+			*list_a = push_b(*list_a, *list_b);
+			min_w++;
+			max_w++;
 		}
 		else
-			rotate_a(list_a, yes_write);
-		len = lenght_list(list_a);
+			rotate_a(*list_a, yes_write);
+		len = lenght_list(*list_a);
 	}
+	print_list(*list_a);
+	*list_b = pointer_first(*list_b);
+	printf("autre \n");
 }
 
-int	code(t_list *list_a)
+void	code(t_list *list_a)
 {
-	int		min_w = 0;
-	int		max_w = 10;
+	int		min_w;
+	int		max_w;
 	t_list	*list_b;
 
+	min_w = 0;
+	max_w = 3;
 	// gerer creation *list_b ---fonction
 	// gerer attribution window ---fonction
-	create_and_fill_list_b(list_a, list_b, &min_w, &max_w);
+	list_b = NULL;
+	create_and_fill_list_b(&list_a, &list_b, min_w, max_w);
+	print_list(list_a);
 	sort_three(list_a);
 	fill_list_b_in_list_a_and_sort(list_a, list_b);
 }
@@ -144,19 +151,20 @@ int	push_swap(char **tab_str, int status)
 	status = sorted_tab_index(tab_str, &tab_index, len);
 	if (status != Success)
 		return (status);
-	// while (i < len)
-	// {
-	// 	if (i == 0)
-	// 		list_a = list_new(tab_index[i++]);
-	// 	else
-	// 		list_add_back(list_a, tab_index[i++]);
-	// }
-	// print_list(list_a);
+	while (i < len)
+	{
+		if (i == 0)
+			list_a = list_new(tab_index[i++]);
+		else
+			list_add_back(list_a, tab_index[i++]);
+	}
+	print_list(list_a);
 	// reverse_rotate_a(list_a, yes_write);
 	// sort_three(list_a);
 	// reverse_rotate_a(list_a, yes_write);
 	// swap_a(list_a, yes_write);
-	// print_list(list_a);
+	code(list_a);
+	print_list(list_a);
 	free(tab_index);
 	return ((status = Success), status);
 }

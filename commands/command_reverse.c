@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:37 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 15:26:16 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 22:19:17 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	reverse_rotate_a(t_list *list_a, t_write_status status)
 	t_list	*tmp;
 
 	list_a = pointer_last(list_a);
-	if (list_a == NULL && list_a->p_prev == NULL)
+	if (list_a == NULL || list_a->p_prev == NULL)
 		return ;
 	tmp = list_a;
 	list_a = list_a->p_prev;
@@ -46,7 +46,7 @@ void	reverse_rotate_b(t_list *list_b, t_write_status status)
 	t_list	*tmp;
 
 	list_b = pointer_last(list_b);
-	if (list_b == NULL && list_b->p_prev == NULL)
+	if (list_b == NULL || list_b->p_prev == NULL)
 		return ;
 	tmp = list_b;
 	list_b = list_b->p_prev;

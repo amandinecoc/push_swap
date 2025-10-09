@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:32 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 15:26:08 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 22:13:40 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 // pb (push b) : Prend le premier élément au sommet de a et le met sur b.
 // Ne fait rien si a est vide.
 
-void	push_a(t_list *list_a, t_list *list_b)
+t_list	*push_a(t_list *list_a, t_list *list_b)
 {
 	t_list	*tmp;
 
 	if (list_b == NULL)
-		return ;
+		return (NULL);
 	list_a = pointer_first(list_a);
 	list_b = pointer_first(list_b);
 	tmp = list_b;
@@ -36,14 +36,15 @@ void	push_a(t_list *list_a, t_list *list_b)
 	list_a = tmp;
 	// list_a = pointer_first(list_a);
 	ft_putendl_fd("pa", 2);
+	return (list_b);
 }
 
-void	push_b(t_list *list_a, t_list *list_b)
+t_list	*push_b(t_list *list_a, t_list *list_b)
 {
 	t_list	*tmp;
 
 	if (list_a == NULL)
-		return ;
+		return (NULL);
 	list_a = pointer_first(list_a);
 	list_b = pointer_first(list_b);
 	tmp = list_a;
@@ -54,5 +55,7 @@ void	push_b(t_list *list_a, t_list *list_b)
 		list_b->p_prev = tmp;
 	tmp->p_next = list_b;
 	list_b = tmp;
+	// list_b = pointer_first(list_b);
 	ft_putendl_fd("pb", 2);
+	return (list_a);
 }
