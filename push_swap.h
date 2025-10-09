@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/07 14:08:53 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/09 11:13:08 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ typedef enum e_write_status
 int					check_digit_and_handle_error(char **tab_str);
 int					check_sorted_tab(int *tab, int len);
 int					check_duplicata_value(int *tab, int len);
-int					check_is_not_int_min_max_and_str_to_int(char **tab_str,
-						int len, int *tab_input);
+int	check_is_not_int_min_max_and_str_to_int(char **tab_str,
+											int len,
+											int *tab_input);
 void				ft_printerror(int status);
 void				free_tab_str(char **tab_str, int len);
 int					len_tab(char **tab);
@@ -59,6 +60,8 @@ int					*create_sorted_index_tab(int *tab_input, int *tab_sorted,
 						int len);
 int					*sort_int_tab(int *tab_sorted, int len);
 int					*tab_index_handler(int *tab_input, int len);
+int					sorted_tab_index(char **tab_str, int **tab_index, int len);
+int					create_input_str(char **str, char *argv);
 
 /* ************************************************************************** */
 /*DOUBL_LIST*/
@@ -82,6 +85,5 @@ void				reverse_rotate_b(t_list *list_b, t_write_status status);
 void				reverse_rotate_rotate(t_list *list_a, t_list *list_b);
 void				push_a(t_list *list_a, t_list *list_b);
 void				push_b(t_list *list_a, t_list *list_b);
-
 
 #endif
