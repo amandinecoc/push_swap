@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 15:55:06 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:55:06 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				push_a(t_list *list_a, t_list *list_b);
 void				push_b(t_list *list_a, t_list *list_b);
 
 /* ************************************************************************** */
-/*PUSH_SWAP*/
+/*ALGO*/
 void				sort_three(t_list *list);
 
 #endif

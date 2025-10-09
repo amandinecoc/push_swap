@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
+#    By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/03 16:05:48 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/09 17:54:08 by acocoual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ SOURCES_PUSH_SWAP += *.c
 SOURCES_PUSH_SWAP += parsing/*.c
 SOURCES_PUSH_SWAP += doubl_list/*.c
 SOURCES_PUSH_SWAP += commands/*.c
+SOURCES_PUSH_SWAP += algo/*.c
 
 #Objets#####################################
 #PATH = obj/

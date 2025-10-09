@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 17:49:54 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:57:04 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void fill_list_b_in_list_a_and_sort(t_list *list_a, t_list *list_b)
 	while (len > 0)
 	{
 		list_b = pointer_first(list_b);
-		pos = pos_to_max_value(list_b);
+		pos = pos_of_max_value(list_b);
 	}
 }
 
