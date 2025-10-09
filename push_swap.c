@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 18:50:02 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:52:53 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void fill_three_last(t_list *list_a)
 	list_a = pointer_first(list_a);
 	value = list_a;
 	list_a = pointer_last(list_a);
-	if (list_a->value == (value + 1))
-		reverse_rotate_a(list_a, yes_write);
 	if (list_a->value > value)
 	{
 		reverse_rotate_a(list_a, yes_write);
 		swap_a(list_a, yes_write);
 	}
+	if (list_a->value == (value + 1))
+		reverse_rotate_a(list_a, yes_write);
 }
 
 int pos_of_max_value(t_list *list_b)
