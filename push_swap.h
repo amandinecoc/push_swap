@@ -6,7 +6,7 @@
 /*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 11:13:08 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:55:06 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int					*sort_int_tab(int *tab_sorted, int len);
 int					*tab_index_handler(int *tab_input, int len);
 int					sorted_tab_index(char **tab_str, int **tab_index, int len);
 int					create_input_str(char **str, char *argv);
+int					create_tab_str(int argc, char **argv, char ***tab_str);
 
 /* ************************************************************************** */
 /*DOUBL_LIST*/
@@ -85,5 +86,9 @@ void				reverse_rotate_b(t_list *list_b, t_write_status status);
 void				reverse_rotate_rotate(t_list *list_a, t_list *list_b);
 void				push_a(t_list *list_a, t_list *list_b);
 void				push_b(t_list *list_a, t_list *list_b);
+
+/* ************************************************************************** */
+/*PUSH_SWAP*/
+void				sort_three(t_list *list);
 
 #endif

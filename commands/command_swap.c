@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:41 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/07 13:27:03 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:07:30 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	swap_a(t_list *list_a, t_write_status status)
 		tmp->p_next->p_prev = tmp;
 	list_a->p_next = tmp;
 	tmp->p_prev = list_a;
+	// list_a = pointer_first(list_a);
 	if (status == not_write)
 		return ;
 	ft_putendl_fd("sa", 2);

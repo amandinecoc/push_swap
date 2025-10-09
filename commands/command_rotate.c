@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:38 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/07 13:26:52 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:07:34 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	rotate_a(t_list *list_a, t_write_status status)
 	tmp->p_next = NULL;
 	list_a->p_next = tmp;
 	list_a->p_next->p_prev = list_a;
+	// list_a = pointer_first(list_a);
 	if (status == not_write)
 		return ;
 	ft_putendl_fd("ra", 2);
