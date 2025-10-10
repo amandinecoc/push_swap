@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 22:25:42 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:21:41 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,13 @@ t_list				*push_b(t_list *list_a, t_list *list_b);
 
 /* ************************************************************************** */
 /*ALGO*/
-void				sort_three(t_list *list);
+t_list				*sort_three(t_list *list);
 int					push_swap(char **tab_str, int status);
-void				code(t_list *list_a);
-void				create_and_fill_list_b(t_list **list_a, t_list **list_b,
+void				code(t_list **list_a);
+t_list				*create_and_fill_list_b(t_list *list_a, t_list **list_b,
 						int min_w, int max_w);
-void				fill_list_b_in_list_a_and_sort(t_list *list_a,
-						t_list *list_b);
+t_list				*fill_list_b_in_list_a_and_sort(t_list *list_a,
+						t_list **list_b);
 void				fill_max_value_list_b_in_list_a(t_list *list_a,
 						t_list *list_b);
 int					pos_of_max_value(t_list *list_b);

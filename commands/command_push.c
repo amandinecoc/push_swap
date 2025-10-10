@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:32 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 22:13:40 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/10 16:57:50 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,41 @@ t_list	*push_a(t_list *list_a, t_list *list_b)
 	return (list_b);
 }
 
+// t_list	*push_b(t_list *list_a, t_list *list_b)
+// {
+// 	t_list	*tmp;
+
+// 	if (list_a == NULL)
+// 		return (NULL);
+// 	list_a = pointer_first(list_a);
+// 	list_b = pointer_first(list_b);
+// 	tmp = list_a;
+// 	list_a = list_a->p_next;
+// 	if (list_a != NULL)
+// 		list_a->p_prev = NULL;
+// 	if (list_b != NULL)
+// 		list_b->p_prev = tmp;
+// 	tmp->p_next = list_b;
+// 	list_b = tmp;
+// 	// list_b = pointer_first(list_b);
+// 	ft_putendl_fd("pb", 2);
+// 	return (list_a);
+// }
+
 t_list	*push_b(t_list *list_a, t_list *list_b)
 {
 	t_list	*tmp;
 
 	if (list_a == NULL)
 		return (NULL);
-	list_a = pointer_first(list_a);
-	list_b = pointer_first(list_b);
-	tmp = list_a;
+	tmp = list_b;
+	list_b = list_a;
 	list_a = list_a->p_next;
+	list_b->p_next = tmp;
+	if (tmp != NULL)
+		tmp->p_prev = list_b;
 	if (list_a != NULL)
 		list_a->p_prev = NULL;
-	if (list_b != NULL)
-		list_b->p_prev = tmp;
-	tmp->p_next = list_b;
-	list_b = tmp;
-	// list_b = pointer_first(list_b);
 	ft_putendl_fd("pb", 2);
 	return (list_a);
 }
