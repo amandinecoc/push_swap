@@ -6,25 +6,25 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/10 17:26:43 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:18:51 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_three_last(t_list *list_a)
+void	fill_three_last(t_list **list_a)
 {
 	int	value;
 
-	list_a = pointer_first(list_a);
-	value = list_a->value;
-	list_a = pointer_last(list_a);
-	if (list_a->value > value)
+	(*list_a) = pointer_first(*list_a);
+	value = (*list_a)->value;
+	(*list_a) = pointer_last(*list_a);
+	if ((*list_a)->value > value)
 	{
 		reverse_rotate_a(list_a, yes_write);
 		swap_a(list_a, yes_write);
 	}
-	if (list_a->value == (value + 1))
+	if ((*list_a)->value == (value + 1))
 		reverse_rotate_a(list_a, yes_write);
 }
 
@@ -51,13 +51,13 @@ int	pos_of_max_value(t_list *list_b)
 	return (pos);
 }
 
-void	fill_max_value_list_b_in_list_a(t_list *list_a, t_list *list_b)
+void	fill_max_value_list_b_in_list_a(t_list **list_a, t_list **list_b)
 {
 	int	len;
 	int	pos;
 
-	len = lenght_list(list_b);
-	pos = pos_of_max_value(list_b);
+	len = lenght_list(*list_b);
+	pos = pos_of_max_value(*list_b);
 	if (pos > (len / 2))
 	{
 		while (pos <= len)
@@ -65,7 +65,7 @@ void	fill_max_value_list_b_in_list_a(t_list *list_a, t_list *list_b)
 			reverse_rotate_b(list_b, yes_write);
 			pos++;
 		}
-		list_a = push_b(list_a, list_b);
+		push_b(list_a, list_b);
 	}
 	// else
 	if (pos <= (len / 2))
@@ -75,11 +75,11 @@ void	fill_max_value_list_b_in_list_a(t_list *list_a, t_list *list_b)
 			rotate_b(list_b, yes_write);
 			pos--;
 		}
-		list_a = push_b(list_a, list_b);
+		push_b(list_a, list_b);
 	}
 }
 
-t_list	*fill_list_b_in_list_a_and_sort(t_list *list_a, t_list **list_b)
+void	fill_list_b_in_list_a_and_sort(t_list **list_a, t_list **list_b)
 {
 	int	len;
 
@@ -87,66 +87,68 @@ t_list	*fill_list_b_in_list_a_and_sort(t_list *list_a, t_list **list_b)
 	printf("len = %d\n", len);
 	while (len >= 0)
 	{
-		*list_b = pointer_first(*list_b);
+		(*list_b) = pointer_first(*list_b);
 		ft_putendl_fd("list_b", 2);
 		print_list(*list_b);
-		fill_max_value_list_b_in_list_a(list_a, *list_b);
+		fill_max_value_list_b_in_list_a(list_a, list_b);
 		fill_three_last(list_a);
 		len = lenght_list(*list_b);
 	}
-	return (list_a);
 }
 
-t_list	*create_and_fill_list_b(t_list *list_a, t_list **list_b, int min_w,
+void	create_and_fill_list_b(t_list **list_a, t_list **list_b, int min_w,
 		int max_w)
 {
 	int	len;
 
-	len = lenght_list(list_a);
+	len = lenght_list(*list_a);
 	while (len > 3)
 	{
-		list_a = pointer_first(list_a);
-		if (list_a->value < min_w)
+		(*list_a) = pointer_first(*list_a);
+		if ((*list_a)->value < min_w)
 		{
-			list_a = push_b(list_a, *list_b);
-			reverse_rotate_b(*list_b, yes_write);
+			push_b(list_a, list_b);
+			// print_list(*list_b);
+			reverse_rotate_b(list_b, yes_write);
+			// print_list(*list_b);
 		}
-		else if (list_a->value >= min_w && list_a->value <= max_w)
+		else if ((*list_a)->value >= min_w && (*list_a)->value <= max_w)
 		{
-			list_a = push_b(list_a, *list_b);
+			push_b(list_a, list_b);
+			// print_list(*list_b);
 			min_w++;
 			max_w++;
 		}
 		else
 			rotate_a(list_a, yes_write);
-		len = lenght_list(list_a);
+		len = lenght_list(*list_a);
 	}
-	print_list(list_a);
+	print_list(*list_a);
 	*list_b = pointer_first(*list_b);
 	printf("list_b \n");
 	print_list(*list_b);
-	return (list_a);
 }
 
 void	code(t_list **list_a)
 {
 	int		min_w;
 	int		max_w;
-	t_list	*list_b;
+	t_list	**list_b;
 
 	min_w = 0;
 	max_w = 2;
 	// gerer creation *list_b ---fonction
 	// gerer attribution window ---fonction
-	list_b = NULL;
-	*list_a = create_and_fill_list_b(*list_a, &list_b, min_w, max_w);
-	*list_a = sort_three(*list_a);
+	list_b = malloc(sizeof(t_list *));
+	create_and_fill_list_b(list_a, list_b, min_w, max_w);
+	sort_three(list_a);
 	print_list(*list_a);
-	*list_a = fill_list_b_in_list_a_and_sort(*list_a, &list_b);
+	fill_list_b_in_list_a_and_sort(list_a, list_b);
 	ft_putendl_fd("list_a", 2);
 	print_list(*list_a);
 	// ft_putendl_fd("list_b", 2);
 	// print_list(list_b);
+	//free(list_b);
 }
 
 int	push_swap(char **tab_str, int status)

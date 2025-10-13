@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:41:14 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 22:01:01 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:16:43 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_list	*pointer_last(t_list *list)
 		return (list);
 	while (list->p_next != NULL)
 		list = list->p_next;
-	return (list);
+	return list;
 }
 
 int	lenght_list(t_list *list)
