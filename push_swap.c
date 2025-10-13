@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 13:18:51 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 13:55:42 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	fill_three_last(t_list **list_a)
 	(*list_a) = pointer_first(*list_a);
 	value = (*list_a)->value;
 	(*list_a) = pointer_last(*list_a);
-	if ((*list_a)->value > value)
+	if ((*list_a)->value < value)
 	{
 		reverse_rotate_a(list_a, yes_write);
 		swap_a(list_a, yes_write);
 	}
-	if ((*list_a)->value == (value + 1))
+	if ((*list_a)->value == (value - 1))
 		reverse_rotate_a(list_a, yes_write);
 }
 
@@ -65,18 +65,18 @@ void	fill_max_value_list_b_in_list_a(t_list **list_a, t_list **list_b)
 			reverse_rotate_b(list_b, yes_write);
 			pos++;
 		}
-		push_b(list_a, list_b);
+		push_a(list_a, list_b);
 	}
-	// else
-	if (pos <= (len / 2))
+	else
 	{
 		while (pos < 0)
 		{
 			rotate_b(list_b, yes_write);
 			pos--;
 		}
-		push_b(list_a, list_b);
+		push_a(list_a, list_b);
 	}
+		// if (pos <= (len / 2))
 }
 
 void	fill_list_b_in_list_a_and_sort(t_list **list_a, t_list **list_b)
@@ -84,13 +84,15 @@ void	fill_list_b_in_list_a_and_sort(t_list **list_a, t_list **list_b)
 	int	len;
 
 	len = lenght_list(*list_b);
-	printf("len = %d\n", len);
-	while (len >= 0)
+	// printf("len = %d\n", len);
+	while (len > 0)
 	{
 		(*list_b) = pointer_first(*list_b);
-		ft_putendl_fd("list_b", 2);
-		print_list(*list_b);
+		// ft_putendl_fd("list_b", 2);
+		// print_list(*list_b);
 		fill_max_value_list_b_in_list_a(list_a, list_b);
+		ft_putendl_fd("list_a first remplissage", 2);
+		print_list(*list_a);
 		fill_three_last(list_a);
 		len = lenght_list(*list_b);
 	}
@@ -123,7 +125,7 @@ void	create_and_fill_list_b(t_list **list_a, t_list **list_b, int min_w,
 			rotate_a(list_a, yes_write);
 		len = lenght_list(*list_a);
 	}
-	print_list(*list_a);
+	// print_list(*list_a);
 	*list_b = pointer_first(*list_b);
 	printf("list_b \n");
 	print_list(*list_b);
@@ -140,11 +142,14 @@ void	code(t_list **list_a)
 	// gerer creation *list_b ---fonction
 	// gerer attribution window ---fonction
 	list_b = malloc(sizeof(t_list *));
+	ft_putendl_fd("list_a debut", 2);
+	print_list(*list_a);
 	create_and_fill_list_b(list_a, list_b, min_w, max_w);
 	sort_three(list_a);
+	ft_putendl_fd("list_a apres sort three", 2);
 	print_list(*list_a);
 	fill_list_b_in_list_a_and_sort(list_a, list_b);
-	ft_putendl_fd("list_a", 2);
+	ft_putendl_fd("list_a final", 2);
 	print_list(*list_a);
 	// ft_putendl_fd("list_b", 2);
 	// print_list(list_b);
@@ -170,7 +175,7 @@ int	push_swap(char **tab_str, int status)
 		else
 			list_add_back(list_a, tab_index[i++]);
 	}
-	print_list(list_a);
+	// print_list(list_a);
 	// reverse_rotate_a(list_a, yes_write);
 	// sort_three(list_a);
 	// reverse_rotate_a(list_a, yes_write);
