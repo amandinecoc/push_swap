@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 13:16:11 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:02:16 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,19 @@ void				push_b(t_list **list_a, t_list **list_b);
 /* ************************************************************************** */
 /*ALGO*/
 void				sort_three(t_list **list);
+void				sort_reverse_three(t_list **list);
 int					push_swap(char **tab_str, int status);
-void				code(t_list **list_a);
+void				algo_sort(t_list **list_a);
 void				create_and_fill_list_b(t_list **list_a, t_list **list_b,
 						int min_w, int max_w);
 void				fill_list_b_in_list_a_and_sort(t_list **list_a,
 						t_list **list_b);
 void				fill_max_value_list_b_in_list_a(t_list **list_a,
 						t_list **list_b);
+void				is_second_three_last(t_list **list_a);
+void				is_third_three_two_last(t_list **list_a);
+void				is_third_three_last(t_list **list_a);
+void				fill_three_last(t_list **list_a, t_list **list_b);
 int					pos_of_max_value(t_list *list_b);
-void				fill_three_last(t_list **list_a);
 
 #endif

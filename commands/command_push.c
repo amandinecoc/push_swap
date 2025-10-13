@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:32 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 14:19:06 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:05:23 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	push_a(t_list **list_a, t_list **list_b)
 // 		tmp->p_next = NULL;
 // 		// list_b->p_prev = NULL;
 // 	}
-// 	else 
+// 	else
 // 	{
 // 		// list_b = pointer_first(*list_b);
 // 		(*list_b)->p_prev = tmp;
@@ -68,26 +68,17 @@ void	push_a(t_list **list_a, t_list **list_b)
 
 void	push_b(t_list **list_a, t_list **list_b)
 {
-	t_list *tmp;
-	if(*list_a == NULL)
-		return;
-		
+	t_list	*tmp;
+
+	if (*list_a == NULL)
+		return ;
 	tmp = *list_b;
 	*list_b = *list_a;
 	*list_a = (*list_a)->p_next;
 	(*list_b)->p_next = tmp;
-	if(tmp != NULL)
+	if (tmp != NULL)
 		tmp->p_prev = *list_b;
-	if(list_a != NULL)
+	if (list_a != NULL)
 		(*list_a)->p_prev = NULL;
 	ft_putendl_fd("pb", 1);
 }
-
-//   t_list *p_new = malloc(sizeof(t_list));
-//     if (p_new != NULL)
-//     {
-//         p_new->value = content;
-//         p_new->p_next = NULL;
-//         p_new->p_prev = NULL;
-//     }
-//     return p_new;

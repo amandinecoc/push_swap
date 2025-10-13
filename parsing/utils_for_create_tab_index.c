@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_for_create_tab_index.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:15:20 by acocoual          #+#    #+#             */
-/*   Updated: 2025/10/09 15:57:20 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:06:19 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	len_tab(char **tab)
 	return (len);
 }
 
-int create_input_str(char **str, char *argv)
+int	create_input_str(char **str, char *argv)
 {
-	char *tmp;
-	
+	char	*tmp;
+
 	tmp = ft_strjoin(*str, " ");
 	if (tmp == NULL)
 		return (malloc_failure);
@@ -44,15 +44,15 @@ int create_input_str(char **str, char *argv)
 	if (*str == NULL)
 		return (free(tmp), malloc_failure);
 	free(tmp);
-	return(Success);
+	return (Success);
 }
 
-int create_tab_str(int argc, char **argv, char ***tab_str)
+int	create_tab_str(int argc, char **argv, char ***tab_str)
 {
-	int i;
-	int status;
-	char *str;
-	
+	int		i;
+	int		status;
+	char	*str;
+
 	i = 2;
 	str = ft_strdup(argv[1]);
 	if (argc > 2)

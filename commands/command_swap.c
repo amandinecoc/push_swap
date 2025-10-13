@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:41 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 13:23:57 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 17:16:11 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ void	swap_a(t_list **list_a, t_write_status status)
 		tmp->p_next->p_prev = tmp;
 	(*list_a)->p_next = tmp;
 	tmp->p_prev = (*list_a);
-	// (*list_a) = pointer_first((*list_a));
 	if (status == not_write)
 		return ;
-	ft_putendl_fd("sa", 2);
+	ft_putendl_fd("sa", 1);
 }
 
 void	swap_b(t_list **list_b, t_write_status status)
@@ -58,12 +57,12 @@ void	swap_b(t_list **list_b, t_write_status status)
 	tmp->p_prev = (*list_b);
 	if (status == not_write)
 		return ;
-	ft_putendl_fd("sa", 2);
+	ft_putendl_fd("sa", 1);
 }
 
 void	swap_swap(t_list **list_a, t_list **list_b)
 {
 	swap_a(list_a, not_write);
 	swap_b(list_b, not_write);
-	ft_putendl_fd("ss", 2);
+	ft_putendl_fd("ss", 1);
 }

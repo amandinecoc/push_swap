@@ -6,7 +6,7 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/09 21:30:26 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/13 18:03:48 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ SOURCES_PUSH_SWAP += *.c
 SOURCES_PUSH_SWAP += parsing/*.c
 SOURCES_PUSH_SWAP += doubl_list/*.c
 SOURCES_PUSH_SWAP += commands/*.c
-# SOURCES_PUSH_SWAP += algo/*.c
+SOURCES_PUSH_SWAP += algo/*.c
 
 #Objets#####################################
 #PATH = obj/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_sorted_index_tab.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:47:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/09 11:16:49 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:06:13 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ int	*tab_index_handler(int *tab_input, int len)
 	return (tab_index);
 }
 
-int sorted_tab_index(char **tab_str, int **tab_index, int len)
+int	sorted_tab_index(char **tab_str, int **tab_index, int len)
 {
 	int	*tab_input;
-	
+
 	tab_input = malloc(sizeof(int) * len);
 	if (!tab_input)
 		return (free_tab_str(tab_str, len), malloc_failure);
@@ -108,5 +108,5 @@ int sorted_tab_index(char **tab_str, int **tab_index, int len)
 	*tab_index = tab_index_handler(tab_input, len);
 	if (*tab_index == NULL)
 		return (free(tab_input), malloc_failure);
-	return(Success);
+	return (Success);
 }

@@ -6,162 +6,11 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 14:37:21 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:02:37 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	fill_three_last(t_list **list_a)
-{
-	int	value;
-
-	(*list_a) = pointer_first(*list_a);
-	value = (*list_a)->value;
-	(*list_a) = pointer_last(*list_a);
-	if ((*list_a)->value < value)
-	{
-		reverse_rotate_a(list_a, yes_write);
-		swap_a(list_a, yes_write);
-	}
-	if ((*list_a)->value == (value - 1))
-		reverse_rotate_a(list_a, yes_write);
-}
-
-int	pos_of_max_value(t_list *list_b)
-{
-	int	i;
-	int	pos;
-	int	value;
-
-	i = 0;
-	list_b = pointer_first(list_b);
-	value = list_b->value;
-	pos = i;
-	while (list_b->p_next != NULL)
-	{
-		list_b = list_b->p_next;
-		i++;
-		if (list_b->value > value)
-		{
-			value = list_b->value;
-			pos = i;
-		}
-	}
-	return (pos);
-}
-
-void	fill_max_value_list_b_in_list_a(t_list **list_a, t_list **list_b)
-{
-	int	len;
-	int	pos;
-
-	len = lenght_list(*list_b);
-	pos = pos_of_max_value(*list_b);
-	if (pos > (len / 2))
-	{
-		while (pos < len)
-		{
-			reverse_rotate_b(list_b, yes_write);
-			pos++;
-		}
-		push_a(list_a, list_b);
-	}
-	else
-	{
-		while (pos > 0)
-		{
-			rotate_b(list_b, yes_write);
-			pos--;
-		}
-		push_a(list_a, list_b);
-	}
-		// if (pos <= (len / 2))
-}
-
-void	fill_list_b_in_list_a_and_sort(t_list **list_a, t_list **list_b)
-{
-	int	len;
-
-	len = lenght_list(*list_b);
-	// printf("len = %d\n", len);
-	while (len > 0)
-	{
-		(*list_b) = pointer_first(*list_b);
-		// ft_putendl_fd("list_b", 2);
-		// print_list(*list_b);
-		fill_max_value_list_b_in_list_a(list_a, list_b);
-		// ft_putendl_fd("list_a first remplissage", 2);
-		// print_list(*list_a);
-		fill_three_last(list_a);
-		len = lenght_list(*list_b);
-	}
-}
-
-void	create_and_fill_list_b(t_list **list_a, t_list **list_b, int min_w,
-		int max_w)
-{
-	int	len;
-
-	len = lenght_list(*list_a);
-	while (len > 3)
-	{
-		(*list_a) = pointer_first(*list_a);
-		if ((*list_a)->value < min_w)
-		{
-			push_b(list_a, list_b);
-			// print_list(*list_b);
-			reverse_rotate_b(list_b, yes_write);
-			// print_list(*list_b);
-		}
-		else if ((*list_a)->value >= min_w && (*list_a)->value <= max_w)
-		{
-			push_b(list_a, list_b);
-			// print_list(*list_b);
-			min_w++;
-			max_w++;
-		}
-		else
-			rotate_a(list_a, yes_write);
-		len = lenght_list(*list_a);
-	}
-	// print_list(*list_a);
-	*list_b = pointer_first(*list_b);
-	// printf("list_b \n");
-	// print_list(*list_b);
-}
-
-void	code(t_list **list_a)
-{
-	int		min_w;
-	int		max_w;
-	t_list	*list_b;
-	void *tmp;
-
-	if (lenght_list(*list_a) <= 100)
-		max_w = lenght_list(*list_a) * 0.10;
-	else
-		max_w = lenght_list(*list_a) * 0.025;
-	min_w = 0;
-	// gerer creation *list_b ---fonction
-	// gerer attribution window ---fonction
-	list_b = list_new(-1);
-	tmp = (void *)list_b;
-	// list_b = NULL;
-	// ft_putendl_fd("list_a debut", 2);
-	// print_list(*list_a);
-	create_and_fill_list_b(list_a, &list_b, min_w, max_w);
-	sort_three(list_a);
-	// ft_putendl_fd("list_a apres sort three", 2);
-	// print_list(*list_a);
-	fill_list_b_in_list_a_and_sort(list_a, &list_b);
-	// ft_putendl_fd("list_a final", 2);
-	// print_list(*list_a);
-	// ft_putendl_fd("list_b", 2);
-	// print_list(list_b);
-	//free(list_b);
-	free(tmp);
-}
 
 int	push_swap(char **tab_str, int status)
 {
@@ -182,13 +31,7 @@ int	push_swap(char **tab_str, int status)
 		else
 			list_add_back(list_a, tab_index[i++]);
 	}
-	// print_list(list_a);
-	// reverse_rotate_a(list_a, yes_write);
-	// sort_three(list_a);
-	// reverse_rotate_a(list_a, yes_write);
-	// swap_a(list_a, yes_write);
-	code(&list_a);
-	// print_list(list_a);
+	algo_sort(&list_a);
 	free(tab_index);
 	return ((status = Success), status);
 }
