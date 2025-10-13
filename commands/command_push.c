@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:32 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 13:22:13 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:19:06 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,35 +35,52 @@ void	push_a(t_list **list_a, t_list **list_b)
 	tmp->p_next = (*list_a);
 	(*list_a) = tmp;
 	// list_a = pointer_first(list_a);
-	ft_putendl_fd("pa", 2);
+	ft_putendl_fd("pa", 1);
 }
+
+// void	push_b(t_list **list_a, t_list **list_b)
+// {
+// 	t_list	*tmp;
+
+// 	if (*list_a == NULL)
+// 		return ;
+// 	*list_a = pointer_first(*list_a);
+// 	tmp = (*list_a);
+// 	(*list_a) = (*list_a)->p_next;
+// 	if ((*list_a) != NULL)
+// 		(*list_a)->p_prev = NULL;
+// 	if (*list_b == NULL)
+// 	{
+// 		tmp->p_next = NULL;
+// 		// list_b->p_prev = NULL;
+// 	}
+// 	else 
+// 	{
+// 		// list_b = pointer_first(*list_b);
+// 		(*list_b)->p_prev = tmp;
+// 		tmp->p_next = (*list_b);
+// 	}
+// 	(*list_b) = tmp;
+// 	// list_b = pointer_first(*list_b);
+// 	ft_putendl_fd("pb", 2);
+// 	// return (list_a);
+// }
 
 void	push_b(t_list **list_a, t_list **list_b)
 {
-	t_list	*tmp;
-
-	if (*list_a == NULL)
-		return ;
-	*list_a = pointer_first(*list_a);
-	tmp = (*list_a);
-	(*list_a) = (*list_a)->p_next;
-	if ((*list_a) != NULL)
+	t_list *tmp;
+	if(*list_a == NULL)
+		return;
+		
+	tmp = *list_b;
+	*list_b = *list_a;
+	*list_a = (*list_a)->p_next;
+	(*list_b)->p_next = tmp;
+	if(tmp != NULL)
+		tmp->p_prev = *list_b;
+	if(list_a != NULL)
 		(*list_a)->p_prev = NULL;
-	if (*list_b == NULL)
-	{
-		tmp->p_next = NULL;
-		// list_b->p_prev = NULL;
-	}
-	else 
-	{
-		// list_b = pointer_first(*list_b);
-		(*list_b)->p_prev = tmp;
-		tmp->p_next = (*list_b);
-	}
-	(*list_b) = tmp;
-	// list_b = pointer_first(*list_b);
-	ft_putendl_fd("pb", 2);
-	// return (list_a);
+	ft_putendl_fd("pb", 1);
 }
 
 //   t_list *p_new = malloc(sizeof(t_list));

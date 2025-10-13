@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:38 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 13:23:39 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:31:05 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	rotate_b(t_list **list_b, t_write_status status)
 	(*list_b)->p_next->p_prev = (*list_b);
 	if (status == not_write)
 		return ;
-	ft_putendl_fd("ra", 2);
+	ft_putendl_fd("rb", 2);
 }
 
 void	rotate_rotate(t_list **list_a, t_list **list_b)
