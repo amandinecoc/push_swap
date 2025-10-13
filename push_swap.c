@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 18:02:37 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:26:18 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	push_swap(char **tab_str, int status)
 	}
 	algo_sort(&list_a);
 	free(tab_index);
+	free_list_a(&list_a);
 	return ((status = Success), status);
 }
 
@@ -49,4 +50,23 @@ int	main(int argc, char **argv)
 	status = push_swap(tab_str, status);
 	ft_printerror(status);
 	return (status);
+}
+
+void free_list_a(t_list **list_a)
+{
+	(*list_a) = pointer_first(*list_a);
+    if (*list_a != NULL)
+    {
+        t_list *tmp;
+		tmp = (*list_a);
+        while (tmp != NULL)
+        {
+            t_list *del;
+			del = tmp;
+            tmp = tmp->p_next;
+            free(del);
+        }
+        free(*list_a), *list_a = NULL;
+		free(tmp);
+    }
 }

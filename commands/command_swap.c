@@ -6,19 +6,11 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:41 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 17:16:11 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:15:38 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// sa (swap a) : Intervertit les 2 premiers éléments au sommet de la pile a.
-// Ne fait rien s’il n’y en a qu’un ou aucun
-
-// sb (swap b ) : Intervertit les 2 premiers éléments au sommet de la pile b.
-// Ne fait rien s’il n’y en a qu’un ou aucun.
-
-// ss : sa et sb en même temps.
 
 void	swap_a(t_list **list_a, t_write_status status)
 {

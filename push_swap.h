@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 18:10:04 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:24:39 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ void				is_third_three_two_last(t_list **list_a);
 void				is_third_three_last(t_list **list_a);
 void				fill_three_last(t_list **list_a, t_list **list_b);
 int					pos_of_max_value(t_list *list_b);
+void				free_list_a(t_list **list_a);
 
 #endif
