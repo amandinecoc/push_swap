@@ -6,7 +6,7 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/13 18:03:48 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/16 00:21:16 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,11 +52,23 @@ SOURCES_LIBFT += libft/ft_strtrim.c
 SOURCES_LIBFT += libft/ft_substr.c
 SOURCES_LIBFT += libft/ft_atoll.c
 
-SOURCES_PUSH_SWAP += *.c
-SOURCES_PUSH_SWAP += parsing/*.c
-SOURCES_PUSH_SWAP += doubl_list/*.c
-SOURCES_PUSH_SWAP += commands/*.c
-SOURCES_PUSH_SWAP += algo/*.c
+SOURCES_PUSH_SWAP += push_swap.c
+
+SOURCES_PUSH_SWAP += parsing/checker_and_print_error.c
+SOURCES_PUSH_SWAP += parsing/create_sorted_index_tab.c
+SOURCES_PUSH_SWAP += parsing/utils_for_create_tab_index.c
+
+SOURCES_PUSH_SWAP += doubl_list/create_list.c
+SOURCES_PUSH_SWAP += doubl_list/list_utils.c
+
+SOURCES_PUSH_SWAP += commands/command_push.c
+SOURCES_PUSH_SWAP += commands/command_reverse.c
+SOURCES_PUSH_SWAP += commands/command_rotate.c
+SOURCES_PUSH_SWAP += commands/command_swap.c
+
+SOURCES_PUSH_SWAP += algo/algo.c
+SOURCES_PUSH_SWAP += algo/manag_three_last_elem.c
+SOURCES_PUSH_SWAP += algo/sort_five.c
 
 #Objets#####################################
 #PATH = obj/
