@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:50 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 18:26:18 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/15 20:53:47 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,18 @@ int	push_swap(char **tab_str, int status)
 	while (i < len)
 	{
 		if (i == 0)
+		{
 			list_a = list_new(tab_index[i++]);
+			if (list_a == NULL)
+					return (malloc_failure);
+		}
 		else
 			list_add_back(list_a, tab_index[i++]);
 	}
 	algo_sort(&list_a);
 	free(tab_index);
 	free_list_a(&list_a);
-	return ((status = Success), status);
+	return (Success);
 }
 
 int	main(int argc, char **argv)
@@ -66,7 +70,5 @@ void free_list_a(t_list **list_a)
             tmp = tmp->p_next;
             free(del);
         }
-        free(*list_a), *list_a = NULL;
-		free(tmp);
     }
 }

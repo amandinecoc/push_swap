@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:15:20 by acocoual          #+#    #+#             */
-/*   Updated: 2025/10/13 18:06:19 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/15 21:24:16 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	create_tab_str(int argc, char **argv, char ***tab_str)
 
 	i = 2;
 	str = ft_strdup(argv[1]);
+	if (str == NULL)
+		return (malloc_failure);
 	if (argc > 2)
 	{
 		while (i != argc)

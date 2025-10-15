@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:33:04 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 18:05:55 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/15 21:24:45 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ t_list	*list_new(int content)
 	t_list	*p_new;
 
 	p_new = malloc(sizeof(t_list));
-	if (p_new != NULL)
+	if (p_new == NULL)
+		return (NULL);
+	else
 	{
 		p_new->value = content;
 		p_new->p_next = NULL;
