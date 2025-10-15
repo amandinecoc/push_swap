@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:15:20 by acocoual          #+#    #+#             */
-/*   Updated: 2025/10/15 21:24:16 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/16 00:06:37 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	create_input_str(char **str, char *argv)
 
 	tmp = ft_strjoin(*str, " ");
 	if (tmp == NULL)
-		return (malloc_failure);
+		return (free(*str), malloc_failure);
 	free(*str);
 	*str = ft_strjoin(tmp, argv);
 	if (*str == NULL)

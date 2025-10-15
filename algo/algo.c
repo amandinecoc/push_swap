@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 18:01:19 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/15 23:46:43 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/16 00:14:19 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	algo_sort(t_list **list_a)
 	min_w = 0;
 	list_b = NULL;
 	if (lenght_list(*list_a) == 5)
-		sort_five (list_a, &list_b);
+		sort_five(list_a, &list_b);
 	else
 	{
 		if (lenght_list(*list_a) <= 110)
@@ -124,8 +124,8 @@ void	algo_sort(t_list **list_a)
 		create_and_fill_list_b(list_a, &list_b, min_w, max_w);
 		if (lenght_list(*list_a) >= 3)
 		{
-		sort_three(list_a);
-		fill_list_b_in_list_a_and_sort(list_a, &list_b);
+			sort_three(list_a);
+			fill_list_b_in_list_a_and_sort(list_a, &list_b);
 		}
 		else
 			swap_a(list_a, yes_write);
