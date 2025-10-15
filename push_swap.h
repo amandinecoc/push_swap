@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:31:27 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/13 18:24:39 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/15 23:42:12 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void				push_b(t_list **list_a, t_list **list_b);
 /* ************************************************************************** */
 /*ALGO*/
 void				sort_three(t_list **list);
+void				sort_five(t_list **list_a, t_list **list_b);
 int					push_swap(char **tab_str, int status);
 void				algo_sort(t_list **list_a);
 void				create_and_fill_list_b(t_list **list_a, t_list **list_b,
