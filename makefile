@@ -6,7 +6,7 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/16 00:59:26 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/16 16:23:46 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ OBJ := ft_atoi.o \
 	ft_substr.o \
 	ft_tolower.o \
 	ft_toupper.o
-
+	
 DIR = obj/
 
 #Compilation################################
@@ -132,6 +132,7 @@ re: fclean
 all_libft: $(NAME_LIBFT)
 
 $(NAME_LIBFT): $(SOURCES_LIBFT)
+	mkdir ./obj/
 	$(CC) $(CFLAGS) -c $(SOURCES_LIBFT) $(INCLUDES_LIBFT)
 	ar rcs $(NAME_LIBFT) $(OBJ)
 	mv $(OBJ) $(DIR) 
