@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 09:21:26 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/11 17:32:29 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:23:57 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "../checker.h"
 
 size_t	ft_strlen(const char *s)
 {

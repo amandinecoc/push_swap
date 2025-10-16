@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 09:21:33 by amandine          #+#    #+#             */
-/*   Updated: 2025/09/11 20:15:42 by acocoual         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:24:07 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../checker.h"
 
 int	check_n_in_remaining_line(char **line, char *buffer)
 {

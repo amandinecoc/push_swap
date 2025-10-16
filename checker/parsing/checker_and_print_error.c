@@ -6,11 +6,11 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:45:36 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:09:06 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:28:46 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 int	check_digit_and_handle_error(char **tab_str)
 {
@@ -89,14 +89,6 @@ int	check_is_not_int_min_max_and_str_to_int(char **tab_str, int len,
 
 void	ft_printerror(int status)
 {
-	if (status == digit_failure)
-		ft_putendl_fd("ERROR : not a digit input", 2);
-	if (status == double_failure)
-		ft_putendl_fd("ERROR : number duplicata", 2);
-	if (status == malloc_failure)
-		ft_putendl_fd("ERROR : memory allocation", 2);
-	if (status == already_sorted)
-		ft_putendl_fd("ERROR : list already sorted", 2);
-	if (status == limit_failure)
-		ft_putendl_fd("ERROR : int min or int max", 2);
+	if (status == Success)
+		ft_putendl_fd("Error", 2);
 }

@@ -6,11 +6,11 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:41:14 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:25:17 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:26:04 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 t_list	*pointer_first(t_list *list)
 {
