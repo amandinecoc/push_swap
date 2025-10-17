@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:26:11 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:47:39 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	fill_list_a(t_list **list_a, int len, int *tab_index)
 
 	i = 1;
 	while (i < len)
-		list_add_back(list_a, tab_index[i++]);
+		list_add_back((*list_a), tab_index[i++]);
 }
 
 int	create_list_a(char **tab_str, int status)

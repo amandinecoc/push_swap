@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 01:33:15 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:26:20 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:36:18 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	execute_command(char *line, t_list **list_a, t_list **list_b)
 int	create_and_sort_list_b_and_a(t_list **list_a)
 {
 	char	*line;
-	char	*tmp;
 	t_list	*list_b;
 
 	list_b = NULL;

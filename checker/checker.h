@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:25:17 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:39:32 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int					check_n_in_next_line(char **line, char *buffer, int fd,
 						int len_buf);
 int					fill_remain_in_buffer(int i, char **tmp, char *buffer,
 						char **line);
-size_t				ft_strlen(const char *s);
-char				*ft_strdup(const char *s);
-char				*ft_strjoin(char *s1, char *s2);
-void				ft_bzero(void *s, int n);
+size_t				ft_strlen_gnl(const char *s);
+char				*ft_strdup_gnl(const char *s);
+char				*ft_strjoin_gnl(char *s1, char *s2);
+void				ft_bzero_gnl(void *s, int n);
 
 /* ************************************************************************** */
 /*PARSING*/
