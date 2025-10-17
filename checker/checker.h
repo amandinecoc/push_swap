@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:26:23 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 01:45:49 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@
 
 /* ************************************************************************** */
 /*TYPEDEF*/
-typedef enum e_status
-{
-	Success,
-	digit_failure,
-	double_failure,
-	already_sorted,
-	malloc_failure,
-	limit_failure,
-}					t_status;
 
 typedef struct s_list
 {

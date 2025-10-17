@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:45:36 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:28:46 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 01:54:19 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	check_digit_and_handle_error(char **tab_str)
 			if (ft_isdigit(tab_str[i][j]) == 1)
 				j++;
 			else
-				return (digit_failure);
+				return (EXIT_FAILURE);
 		}
 		i++;
 	}
-	return (Success);
+	return (EXIT_SUCCESS);
 }
 
 int	check_sorted_tab(int *tab, int len)
@@ -43,10 +43,10 @@ int	check_sorted_tab(int *tab, int len)
 	while (i < (len - 1))
 	{
 		if (tab[i] > tab[i + 1])
-			return (Success);
+			return (EXIT_SUCCESS);
 		i++;
 	}
-	return (already_sorted);
+	return (EXIT_FAILURE);
 }
 
 int	check_duplicata_value(int *tab, int len)
@@ -61,12 +61,12 @@ int	check_duplicata_value(int *tab, int len)
 		while (j != len)
 		{
 			if (tab[i] == tab[j])
-				return (double_failure);
+				return (EXIT_FAILURE);
 			j++;
 		}
 		i++;
 	}
-	return (Success);
+	return (EXIT_SUCCESS);
 }
 
 int	check_is_not_int_min_max_and_str_to_int(char **tab_str, int len,
@@ -80,15 +80,9 @@ int	check_is_not_int_min_max_and_str_to_int(char **tab_str, int len,
 	{
 		check = ft_atoll(tab_str[i]);
 		if (check < -2147483648 || check > 2147483647)
-			return (limit_failure);
+			return (EXIT_FAILURE);
 		tab_input[i] = check;
 		i++;
 	}
-	return (Success);
-}
-
-void	ft_printerror(int status)
-{
-	if (status == Success)
-		ft_putendl_fd("Error", 2);
+	return (EXIT_SUCCESS);
 }

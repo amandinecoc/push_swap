@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:41 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:18:53 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 01:20:50 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	swap_b(t_list **list_b, t_write_status status)
 	tmp->p_prev = (*list_b);
 	if (status == not_write)
 		return ;
-	ft_putendl_fd("sa", 1);
+	ft_putendl_fd("sb", 1);
 }
 
 void	swap_swap(t_list **list_a, t_list **list_b)

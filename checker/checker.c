@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:35:57 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 01:52:27 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,22 @@
 
 #include "checker.h"
 
-sort_and_create_list_b(t_list **list_a)
+int check_sort_list(t_list *list_a, int len)
 {
-    
+	int newlen;
+
+	newlen = lenght_list(list_a);
+	if (len != newlen)
+		return (EXIT_FAILURE);
+	list_a = pointer_first(list_a);
+	while (list_a != NULL)
+	{
+		if (list_a->value > list_a->p_next->value)
+			return (EXIT_FAILURE);
+		else
+			list_a = list_a->p_next;
+	}
+	return (EXIT_SUCCESS);
 }
 
 int create_list_a(char **tab_str, int status)
@@ -40,7 +53,7 @@ int create_list_a(char **tab_str, int status)
 	i = 0;
 	len = len_tab(tab_str);
 	status = sorted_tab_index(tab_str, &tab_index, len);
-	if (status != Success)
+	if (status != EXIT_SUCCESS)
 		return (status);
 	while (i < len)
 	{
@@ -48,15 +61,19 @@ int create_list_a(char **tab_str, int status)
 		{
 			list_a = list_new(tab_index[i++]);
 			if (list_a == NULL)
-				return (malloc_failure);
+				return (EXIT_FAILURE);
 		}
 		else
 			list_add_back(list_a, tab_index[i++]);
 	}
-    sort_and_create_list_b(&list_a);
+	len = lenght_list(list_a);
+    if (create_and_sort_list_b_and_a(&list_a) != EXIT_SUCCESS)
+		return (free(tab_index), free_list_a(&list_a), EXIT_FAILURE);
+	if (check_sort_list(list_a, len) != EXIT_SUCCESS)
+		return (free(tab_index), free_list_a(&list_a), EXIT_FAILURE);
 	free(tab_index);
 	free_list_a(&list_a);
-	return (Success);
+	return (EXIT_SUCCESS);
 }
 
 int	main(int argc, char **argv)
@@ -65,34 +82,13 @@ int	main(int argc, char **argv)
 	int		status;
 
 	if (argc <= 1)
-		return (ft_printerror(status), EXIT_FAILURE);
+		return (ft_putendl_fd("Error", 2), EXIT_FAILURE);
 	status = create_tab_str(argc, argv, &tab_str);
-	if (status != Success)
-		return (ft_printerror(status), status);
+	if (status != EXIT_SUCCESS)
+		return (ft_putendl_fd("Error", 2), EXIT_FAILURE);
 	status = create_list_a(tab_str, status);
-	ft_printerror(status);
+	if (status != EXIT_SUCCESS)
+		return (ft_putendl_fd("Error", 2), EXIT_FAILURE);
     
 	return (status);
 }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-
-// 	fd = open("./fichier.txt", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	while (line != NULL)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf("%s", line);
-// 	free(line);
-// 	close(fd);
-// 	return (0);
-// }
-
