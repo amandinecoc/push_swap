@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 15:33:04 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:18:29 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:10:36 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,3 @@ void	list_add_back(t_list *list, int value)
 	list->p_next = elem;
 	elem->p_prev = list;
 }
-
-// void print_list(t_list *list)
-// {
-//     list = pointer_first(list);
-//     while(list->p_next != NULL)
-//     {
-//         printf("elem %d\n",list->value);
-//         list = list->p_next;
-//     }
-//     printf("elem %d\n",list->value);
-// }

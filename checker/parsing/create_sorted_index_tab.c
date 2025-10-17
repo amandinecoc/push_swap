@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:47:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 01:49:35 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:13:24 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,19 @@ int	sorted_tab_index(char **tab_str, int **tab_index, int len)
 
 	tab_input = malloc(sizeof(int) * len);
 	if (!tab_input)
-		return (free_tab_str(tab_str, len), EXIT_FAILURE);
-	if (check_digit_and_handle_error(tab_str) == EXIT_FAILURE)
-		return (free_tab_str(tab_str, len), free(tab_input), EXIT_FAILURE);
+		return (free_tab_str(tab_str, len), is_ERROR);
+	if (check_digit_and_handle_error(tab_str) == is_ERROR)
+		return (free_tab_str(tab_str, len), free(tab_input), is_ERROR);
 	if (check_is_not_int_min_max_and_str_to_int(tab_str, len,
-			tab_input) == EXIT_FAILURE)
-		return (free_tab_str(tab_str, len), free(tab_input), EXIT_FAILURE);
+			tab_input) == is_ERROR)
+		return (free_tab_str(tab_str, len), free(tab_input), is_ERROR);
 	free_tab_str(tab_str, len);
-	if (check_duplicata_value(tab_input, len) == EXIT_FAILURE)
-		return (free(tab_input), EXIT_FAILURE);
-	if (check_sorted_tab(tab_input, len) == EXIT_FAILURE)
-		return (free(tab_input), EXIT_FAILURE);
+	if (check_duplicata_value(tab_input, len) == is_ERROR)
+		return (free(tab_input), is_ERROR);
+	if (check_sorted_tab(tab_input, len) == is_ERROR)
+		return (free(tab_input), is_ERROR);
 	*tab_index = tab_index_handler(tab_input, len);
 	if (*tab_index == NULL)
-		return (free(tab_input), EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		return (free(tab_input), is_ERROR);
+	return (is_OK);
 }

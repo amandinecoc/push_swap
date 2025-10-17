@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 01:45:49 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:25:17 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,22 @@
 /* ************************************************************************** */
 /*INCLUDES*/
 # include "libft/libft.h"
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
 # include <sys/stat.h>
 # include <sys/types.h>
+# include <unistd.h>
 
 /* ************************************************************************** */
 /*TYPEDEF*/
+
+typedef enum e_status
+{
+	is_OK,
+	is_KO,
+	is_ERROR,
+}					t_status;
 
 typedef struct s_list
 {
@@ -44,14 +51,16 @@ typedef enum e_write_status
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
 # endif
-char	*get_next_line(int fd);
-int		check_n_in_remaining_line(char **line, char *buffer);
-int		check_n_in_next_line(char **line, char *buffer, int fd, int len_buf);
-int		fill_remain_in_buffer(int i, char **tmp, char *buffer, char **line);
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char *s1, char *s2);
-void	ft_bzero(void *s, int n);
+char				*get_next_line(int fd);
+int					check_n_in_remaining_line(char **line, char *buffer);
+int					check_n_in_next_line(char **line, char *buffer, int fd,
+						int len_buf);
+int					fill_remain_in_buffer(int i, char **tmp, char *buffer,
+						char **line);
+size_t				ft_strlen(const char *s);
+char				*ft_strdup(const char *s);
+char				*ft_strjoin(char *s1, char *s2);
+void				ft_bzero(void *s, int n);
 
 /* ************************************************************************** */
 /*PARSING*/
@@ -78,7 +87,7 @@ void				list_add_back(t_list *list, int value);
 t_list				*pointer_first(t_list *list);
 t_list				*pointer_last(t_list *list);
 int					lenght_list(t_list *list);
-void	free_list_a(t_list **list_a);
+void				free_list_a(t_list **list_a);
 
 /* ************************************************************************** */
 /*COMMAND*/
@@ -96,6 +105,16 @@ void				push_b(t_list **list_a, t_list **list_b);
 
 /* ************************************************************************** */
 /*CHECKER*/
-
+void				print_status(int status);
+int					create_list_a(char **tab_str, int status);
+void				fill_list_a(t_list **list_a, int len, int *tab_index);
+int					check_sort_list(t_list *list_a, int len);
+int					create_and_sort_list_b_and_a(t_list **list_a);
+int					execute_command(char *line, t_list **list_a,
+						t_list **list_b);
+int					execute_push(char *line, t_list **list_a, t_list **list_b);
+int					execute_swap(char *line, t_list **list_a, t_list **list_b);
+int					execute_rotate(char *line, t_list **list_a,
+						t_list **list_b);
 
 #endif

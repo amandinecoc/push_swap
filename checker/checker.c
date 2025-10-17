@@ -6,74 +6,74 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 01:52:27 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:26:11 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ARG="2 3 A"; ./push_swap $ARG | ./checker_linux $ARG
-// je recois une liste de chaine de caractère ou une chaine de caractère
-// la fonction push_swap est lancé avec ARG 
-// Puis le programme checker est lancée avec ARG 
-// lire le fd 1 (sortie standart)
-// parser ARG
-// créer liste a et liste b
-// gnl fd 1 et créer une chaine de caractère
-// split la chaine créer
-// foret de if pour appliquer les commandes sur list a
-// si un element n'est pas une commande return error
-// verif si list a trié et list b vide 
-
 #include "checker.h"
 
-int check_sort_list(t_list *list_a, int len)
+int	check_sort_list(t_list *list_a, int len)
 {
-	int newlen;
+	int	newlen;
 
 	newlen = lenght_list(list_a);
 	if (len != newlen)
-		return (EXIT_FAILURE);
+		return (is_KO);
 	list_a = pointer_first(list_a);
 	while (list_a != NULL)
 	{
 		if (list_a->value > list_a->p_next->value)
-			return (EXIT_FAILURE);
+			return (is_KO);
 		else
 			list_a = list_a->p_next;
 	}
-	return (EXIT_SUCCESS);
+	return (is_OK);
 }
 
-int create_list_a(char **tab_str, int status)
+void	fill_list_a(t_list **list_a, int len, int *tab_index)
 {
-    int		len;
-	int		i;
+	int	i;
+
+	i = 1;
+	while (i < len)
+		list_add_back(list_a, tab_index[i++]);
+}
+
+int	create_list_a(char **tab_str, int status)
+{
+	int		len;
 	int		*tab_index;
 	t_list	*list_a;
 
-	i = 0;
 	len = len_tab(tab_str);
 	status = sorted_tab_index(tab_str, &tab_index, len);
-	if (status != EXIT_SUCCESS)
+	if (status != is_OK)
 		return (status);
-	while (i < len)
+	if (len > 0)
 	{
-		if (i == 0)
-		{
-			list_a = list_new(tab_index[i++]);
-			if (list_a == NULL)
-				return (EXIT_FAILURE);
-		}
-		else
-			list_add_back(list_a, tab_index[i++]);
+		list_a = list_new(tab_index[0]);
+		if (list_a == NULL)
+			return (is_ERROR);
 	}
+	fill_list_a(&list_a, len, tab_index);
 	len = lenght_list(list_a);
-    if (create_and_sort_list_b_and_a(&list_a) != EXIT_SUCCESS)
-		return (free(tab_index), free_list_a(&list_a), EXIT_FAILURE);
-	if (check_sort_list(list_a, len) != EXIT_SUCCESS)
-		return (free(tab_index), free_list_a(&list_a), EXIT_FAILURE);
+	if (create_and_sort_list_b_and_a(&list_a) != is_OK)
+		return (free(tab_index), free_list_a(&list_a), is_ERROR);
+	if (check_sort_list(list_a, len) != is_OK)
+		return (free(tab_index), free_list_a(&list_a), is_KO);
 	free(tab_index);
 	free_list_a(&list_a);
-	return (EXIT_SUCCESS);
+	return (is_OK);
+}
+
+void	print_status(int status)
+{
+	if (status == is_ERROR)
+		ft_putendl_fd("Error", 2);
+	if (status == is_KO)
+		ft_putendl_fd("KO", 2);
+	if (status == is_OK)
+		ft_putendl_fd("OK", 2);
 }
 
 int	main(int argc, char **argv)
@@ -82,13 +82,10 @@ int	main(int argc, char **argv)
 	int		status;
 
 	if (argc <= 1)
-		return (ft_putendl_fd("Error", 2), EXIT_FAILURE);
+		return (ft_putendl_fd("Error", 2), is_ERROR);
 	status = create_tab_str(argc, argv, &tab_str);
-	if (status != EXIT_SUCCESS)
-		return (ft_putendl_fd("Error", 2), EXIT_FAILURE);
+	if (status != is_OK)
+		return (print_status(status), status);
 	status = create_list_a(tab_str, status);
-	if (status != EXIT_SUCCESS)
-		return (ft_putendl_fd("Error", 2), EXIT_FAILURE);
-    
-	return (status);
+	return (print_status(status), status);
 }

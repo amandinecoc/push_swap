@@ -6,53 +6,53 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 01:33:15 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 01:59:03 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:26:20 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int execute_rotate(char *line, t_list **list_a, t_list **list_b)
+int	execute_rotate(char *line, t_list **list_a, t_list **list_b)
 {
 	if (line[1] == 'r')
 	{
 		if (line[2] == '\0')
-			return (rotate_rotate(list_a, list_b), EXIT_SUCCESS);
-		else if (line[2] == 'a')
-			return (reverse_rotate_a(list_a, yes_write), EXIT_SUCCESS);
-		else if (line[2] == 'b')
-			return (reverse_rotate_b(list_b, yes_write), EXIT_SUCCESS);
+			return (rotate_rotate(list_a, list_b), is_OK);
+		else if (line[2] == 'a' && line[3] == '\0')
+			return (reverse_rotate_a(list_a, yes_write), is_OK);
+		else if (line[2] == 'b' && line[3] == '\0')
+			return (reverse_rotate_b(list_b, yes_write), is_OK);
 		else
-			return (EXIT_FAILURE);
+			return (is_ERROR);
 	}
-	else if (line[1] == 'a')
-		return (rotate_a(list_a, yes_write), EXIT_SUCCESS);
-	else if (line[1] == 'b')
-		return (rotate_b(list_b, yes_write), EXIT_SUCCESS);
-	else 
-		return (EXIT_FAILURE);
+	else if (line[1] == 'a' && line[2] == '\0')
+		return (rotate_a(list_a, yes_write), is_OK);
+	else if (line[1] == 'b' && line[2] == '\0')
+		return (rotate_b(list_b, yes_write), is_OK);
+	else
+		return (is_ERROR);
 }
 
-int execute_swap(char *line, t_list **list_a, t_list **list_b)
+int	execute_swap(char *line, t_list **list_a, t_list **list_b)
 {
-	if (line[1] == 'a')
-		return (swap_a(list_a, yes_write), EXIT_SUCCESS);
-	else if (line[1] == 'b')
-		return (swap_b(list_b, yes_write), EXIT_SUCCESS);
-	else if (line[1] == 's')
-		return (swap_swap(list_a, list_b), EXIT_SUCCESS);
-	else 
-		return (EXIT_FAILURE);
+	if (line[1] == 'a' && line[2] == '\0')
+		return (swap_a(list_a, yes_write), is_OK);
+	else if (line[1] == 'b' && line[2] == '\0')
+		return (swap_b(list_b, yes_write), is_OK);
+	else if (line[1] == 's' && line[2] == '\0')
+		return (swap_swap(list_a, list_b), is_OK);
+	else
+		return (is_ERROR);
 }
 
-int execute_push(char *line, t_list **list_a, t_list **list_b)
+int	execute_push(char *line, t_list **list_a, t_list **list_b)
 {
-	if (line[1] == 'a')
-		return (push_a(list_a, list_b), EXIT_SUCCESS);
-	else if (line[1] == 'b')
-		return (push_b(list_a, list_b), EXIT_SUCCESS);
-	else 
-		return (EXIT_FAILURE);
+	if (line[1] == 'a' && line[2] == '\0')
+		return (push_a(list_a, list_b), is_OK);
+	else if (line[1] == 'b' && line[2] == '\0')
+		return (push_b(list_a, list_b), is_OK);
+	else
+		return (is_ERROR);
 }
 
 int	execute_command(char *line, t_list **list_a, t_list **list_b)
@@ -64,23 +64,23 @@ int	execute_command(char *line, t_list **list_a, t_list **list_b)
 	else if (line[0] == 'p')
 		return (execute_push(line, list_a, list_b));
 	else
-		return (EXIT_FAILURE);
+		return (is_ERROR);
 }
 
-int create_and_sort_list_b_and_a(t_list **list_a)
+int	create_and_sort_list_b_and_a(t_list **list_a)
 {
-	char *line;
-	char *tmp;
+	char	*line;
+	char	*tmp;
 	t_list	*list_b;
-	
+
 	list_b = NULL;
 	line = get_next_line(STDOUT_FILENO);
 	while (line != NULL)
 	{
-		if (execute_command(line, list_a, &list_b) != EXIT_SUCCESS)
-			return (free(line), EXIT_FAILURE);
+		if (execute_command(line, list_a, &list_b) != is_OK)
+			return (free(line), is_ERROR);
 		free(line);
 		line = get_next_line(STDOUT_FILENO);
 	}
-	return (EXIT_SUCCESS);
+	return (is_OK);
 }
