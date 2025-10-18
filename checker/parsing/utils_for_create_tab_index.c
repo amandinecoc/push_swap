@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:15:20 by acocoual          #+#    #+#             */
-/*   Updated: 2025/10/17 14:14:13 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:18:12 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	create_tab_str(int argc, char **argv, char ***tab_str)
 	free(str);
 	if (*tab_str == NULL)
 		return (is_ERROR);
-	return (is_OK);
+	return (status);
 }

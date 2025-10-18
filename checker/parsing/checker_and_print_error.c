@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:45:36 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:12:32 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:31:43 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_sorted_tab(int *tab, int len)
 			return (is_OK);
 		i++;
 	}
-	return (is_ERROR);
+	return (is_SORTED);
 }
 
 int	check_duplicata_value(int *tab, int len)

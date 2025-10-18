@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 11:47:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:13:24 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:31:59 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ int	sorted_tab_index(char **tab_str, int **tab_index, int len)
 	free_tab_str(tab_str, len);
 	if (check_duplicata_value(tab_input, len) == is_ERROR)
 		return (free(tab_input), is_ERROR);
-	if (check_sorted_tab(tab_input, len) == is_ERROR)
-		return (free(tab_input), is_ERROR);
+	if (check_sorted_tab(tab_input, len) == is_SORTED)
+		return (free(tab_input), is_SORTED);
 	*tab_index = tab_index_handler(tab_input, len);
 	if (*tab_index == NULL)
 		return (free(tab_input), is_ERROR);

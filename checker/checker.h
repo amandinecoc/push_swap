@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/18 16:32:08 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:31:30 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef enum e_status
 	is_OK,
 	is_KO,
 	is_ERROR,
+	is_SORTED,
 }					t_status;
 
 typedef struct s_list
