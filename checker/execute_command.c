@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 01:33:15 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/18 16:50:28 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:04:54 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,15 @@ int	create_and_sort_list_b_and_a(t_list **list_a)
 	t_list	*list_b;
 
 	list_b = NULL;
-	line = get_next_line(STDOUT_FILENO);
+	line = get_next_line(STDIN_FILENO);
 	if (line == NULL)
 		return (is_ERROR);
-	printf("line = %s\n", line);
 	while (line != NULL)
 	{
 		if (execute_command(line, list_a, &list_b) != is_OK)
 			return (free(line), is_ERROR);
 		free(line);
-		// line = get_next_line(STDOUT_FILENO);
-		line = NULL;
-		printf("line = %s\n", line);
+		line = get_next_line(STDIN_FILENO);
 	}
 	return (is_OK);
 }
