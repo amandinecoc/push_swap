@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:47:39 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 16:55:21 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ int	check_sort_list(t_list *list_a, int len)
 	if (len != newlen)
 		return (is_KO);
 	list_a = pointer_first(list_a);
-	while (list_a != NULL)
+	newlen--;
+	while (newlen > 0)
 	{
 		if (list_a->value > list_a->p_next->value)
 			return (is_KO);
-		else
-			list_a = list_a->p_next;
+		list_a = list_a->p_next;
+		newlen--;
 	}
 	return (is_OK);
 }

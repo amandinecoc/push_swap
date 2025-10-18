@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/18 15:02:47 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 16:32:08 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /* ************************************************************************** */
 /*INCLUDES*/
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -43,7 +43,7 @@ typedef struct s_list
 /* ************************************************************************** */
 /*GET_NEXT_LINE*/
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 1
 # endif
 char				*get_next_line(int fd);
 int					check_n_in_remaining_line(char **line, char *buffer);
