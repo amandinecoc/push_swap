@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:32 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:18:42 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:00:05 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	push_a(t_list **list_a, t_list **list_b)
 		(*list_a)->p_prev = tmp;
 	tmp->p_next = (*list_a);
 	(*list_a) = tmp;
-	ft_putendl_fd("pa", 1);
 }
 
 void	push_b(t_list **list_a, t_list **list_b)
@@ -45,5 +44,4 @@ void	push_b(t_list **list_a, t_list **list_b)
 		tmp->p_prev = *list_b;
 	if (list_a != NULL)
 		(*list_a)->p_prev = NULL;
-	ft_putendl_fd("pb", 1);
 }

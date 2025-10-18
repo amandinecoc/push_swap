@@ -6,13 +6,13 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 16:07:38 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/16 17:18:49 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:01:25 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void	rotate_a(t_list **list_a, t_write_status status)
+void	rotate_a(t_list **list_a)
 {
 	t_list	*tmp;
 
@@ -27,12 +27,9 @@ void	rotate_a(t_list **list_a, t_write_status status)
 	(*list_a)->p_next = tmp;
 	(*list_a)->p_next->p_prev = (*list_a);
 	(*list_a) = pointer_first((*list_a));
-	if (status == not_write)
-		return ;
-	ft_putendl_fd("ra", 1);
 }
 
-void	rotate_b(t_list **list_b, t_write_status status)
+void	rotate_b(t_list **list_b)
 {
 	t_list	*tmp;
 
@@ -47,14 +44,10 @@ void	rotate_b(t_list **list_b, t_write_status status)
 	(*list_b)->p_next = tmp;
 	tmp->p_prev = (*list_b);
 	(*list_b) = pointer_first(*list_b);
-	if (status == not_write)
-		return ;
-	ft_putendl_fd("rb", 1);
 }
 
 void	rotate_rotate(t_list **list_a, t_list **list_b)
 {
-	rotate_a(list_a, not_write);
-	rotate_b(list_b, not_write);
-	ft_putendl_fd("rr", 1);
+	rotate_a(list_a);
+	rotate_b(list_b);
 }

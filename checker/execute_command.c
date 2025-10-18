@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 01:33:15 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:36:18 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:03:16 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int	execute_rotate(char *line, t_list **list_a, t_list **list_b)
 		if (line[2] == '\0')
 			return (rotate_rotate(list_a, list_b), is_OK);
 		else if (line[2] == 'a' && line[3] == '\0')
-			return (reverse_rotate_a(list_a, yes_write), is_OK);
+			return (reverse_rotate_a(list_a), is_OK);
 		else if (line[2] == 'b' && line[3] == '\0')
-			return (reverse_rotate_b(list_b, yes_write), is_OK);
+			return (reverse_rotate_b(list_b), is_OK);
 		else
 			return (is_ERROR);
 	}
 	else if (line[1] == 'a' && line[2] == '\0')
-		return (rotate_a(list_a, yes_write), is_OK);
+		return (rotate_a(list_a), is_OK);
 	else if (line[1] == 'b' && line[2] == '\0')
-		return (rotate_b(list_b, yes_write), is_OK);
+		return (rotate_b(list_b), is_OK);
 	else
 		return (is_ERROR);
 }
@@ -36,9 +36,9 @@ int	execute_rotate(char *line, t_list **list_a, t_list **list_b)
 int	execute_swap(char *line, t_list **list_a, t_list **list_b)
 {
 	if (line[1] == 'a' && line[2] == '\0')
-		return (swap_a(list_a, yes_write), is_OK);
+		return (swap_a(list_a), is_OK);
 	else if (line[1] == 'b' && line[2] == '\0')
-		return (swap_b(list_b, yes_write), is_OK);
+		return (swap_b(list_b), is_OK);
 	else if (line[1] == 's' && line[2] == '\0')
 		return (swap_swap(list_a, list_b), is_OK);
 	else

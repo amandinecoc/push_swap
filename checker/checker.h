@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/17 14:39:32 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:02:47 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,6 @@ typedef struct s_list
 	struct s_list	*p_prev;
 	struct s_list	*p_next;
 }					t_list;
-
-typedef enum e_write_status
-{
-	yes_write = 1,
-	not_write = 0,
-}					t_write_status;
 
 /* ************************************************************************** */
 /*GET_NEXT_LINE*/
@@ -91,14 +85,14 @@ void				free_list_a(t_list **list_a);
 
 /* ************************************************************************** */
 /*COMMAND*/
-void				swap_a(t_list **list_a, t_write_status status);
-void				swap_b(t_list **list_b, t_write_status status);
+void				swap_a(t_list **list_a);
+void				swap_b(t_list **list_b);
 void				swap_swap(t_list **list_a, t_list **list_b);
-void				rotate_a(t_list **list_a, t_write_status status);
-void				rotate_b(t_list **list_b, t_write_status status);
+void				rotate_a(t_list **list_a);
+void				rotate_b(t_list **list_b);
 void				rotate_rotate(t_list **list_a, t_list **list_b);
-void				reverse_rotate_a(t_list **list_a, t_write_status status);
-void				reverse_rotate_b(t_list **list_b, t_write_status status);
+void				reverse_rotate_a(t_list **list_a);
+void				reverse_rotate_b(t_list **list_b);
 void				reverse_rotate_rotate(t_list **list_a, t_list **list_b);
 void				push_a(t_list **list_a, t_list **list_b);
 void				push_b(t_list **list_a, t_list **list_b);
