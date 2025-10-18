@@ -6,13 +6,13 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/18 15:46:35 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/18 17:37:24 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME_LIBFT:= libft.a
 NAME := push_swap
-NAME_BONUS := Checker
+NAME_BONUS := checker
 
 #Source#####################################
 SOURCES_LIBFT += libft/ft_atoi.c
@@ -65,11 +65,11 @@ SOURCES_PUSH_SWAP += algo/algo.c
 SOURCES_PUSH_SWAP += algo/manag_three_last_elem.c
 SOURCES_PUSH_SWAP += algo/sort_five.c
 
-SOURCES_BONUS += checker/*.c
-SOURCES_BONUS += checker/parsing/*.c
-SOURCES_BONUS += checker/get_next_line/*.c
-SOURCES_BONUS += checker/doubl_list/*.c
-SOURCES_BONUS += checker/commands/*.c
+SOURCES_BONUS += checker_bonus/*.c
+SOURCES_BONUS += checker_bonus/parsing/*.c
+SOURCES_BONUS += checker_bonus/get_next_line/*.c
+SOURCES_BONUS += checker_bonus/doubl_list/*.c
+SOURCES_BONUS += checker_bonus/commands/*.c
 
 #Objets#####################################
 
@@ -145,7 +145,7 @@ $(NAME_BONUS):
 	
 fclean_bonus:
 	$(MAKE) fclean
-	rm Checker
+	rm checker
 	
 re_bonus: fclean_bonus
 	$(MAKE) bonus
