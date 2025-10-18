@@ -6,7 +6,7 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/18 17:37:24 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/18 18:49:48 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,10 +66,10 @@ SOURCES_PUSH_SWAP += algo/manag_three_last_elem.c
 SOURCES_PUSH_SWAP += algo/sort_five.c
 
 SOURCES_BONUS += checker_bonus/*.c
-SOURCES_BONUS += checker_bonus/parsing/*.c
+SOURCES_BONUS += checker_bonus/parsing_bonus/*.c
 SOURCES_BONUS += checker_bonus/get_next_line/*.c
-SOURCES_BONUS += checker_bonus/doubl_list/*.c
-SOURCES_BONUS += checker_bonus/commands/*.c
+SOURCES_BONUS += checker_bonus/doubl_list_bonus/*.c
+SOURCES_BONUS += checker_bonus/commands_bonus/*.c
 
 #Objets#####################################
 

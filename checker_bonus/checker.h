@@ -6,7 +6,7 @@
 /*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:44 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/18 17:31:30 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/18 18:50:22 by amandine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_list
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
+
 char				*get_next_line(int fd);
 int					check_n_in_remaining_line(char **line, char *buffer);
 int					check_n_in_next_line(char **line, char *buffer, int fd,
@@ -58,7 +59,7 @@ char				*ft_strjoin_gnl(char *s1, char *s2);
 void				ft_bzero_gnl(void *s, int n);
 
 /* ************************************************************************** */
-/*PARSING*/
+/*PARSING_BONUS*/
 int					check_digit_and_handle_error(char **tab_str);
 int					check_sorted_tab(int *tab, int len);
 int					check_duplicata_value(int *tab, int len);
@@ -76,7 +77,7 @@ int					create_input_str(char **str, char *argv);
 int					create_tab_str(int argc, char **argv, char ***tab_str);
 
 /* ************************************************************************** */
-/*DOUBL_LIST*/
+/*DOUBL_LIST_BONUS*/
 t_list				*list_new(int content);
 void				list_add_back(t_list *list, int value);
 t_list				*pointer_first(t_list *list);
@@ -85,7 +86,7 @@ int					lenght_list(t_list *list);
 void				free_list_a(t_list **list_a);
 
 /* ************************************************************************** */
-/*COMMAND*/
+/*COMMAND_BONUS*/
 void				swap_a(t_list **list_a);
 void				swap_b(t_list **list_b);
 void				swap_swap(t_list **list_a, t_list **list_b);
