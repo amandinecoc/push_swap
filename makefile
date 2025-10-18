@@ -6,7 +6,7 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/18 18:49:48 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/18 18:54:48 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,11 +65,19 @@ SOURCES_PUSH_SWAP += algo/algo.c
 SOURCES_PUSH_SWAP += algo/manag_three_last_elem.c
 SOURCES_PUSH_SWAP += algo/sort_five.c
 
-SOURCES_BONUS += checker_bonus/*.c
-SOURCES_BONUS += checker_bonus/parsing_bonus/*.c
-SOURCES_BONUS += checker_bonus/get_next_line/*.c
-SOURCES_BONUS += checker_bonus/doubl_list_bonus/*.c
-SOURCES_BONUS += checker_bonus/commands_bonus/*.c
+SOURCES_BONUS += checker_bonus/checker.c
+SOURCES_BONUS += checker_bonus/execute_command.c
+SOURCES_BONUS += checker_bonus/parsing_bonus/checker_and_print_error.c
+SOURCES_BONUS += checker_bonus/parsing_bonus/create_sorted_index_tab.c
+SOURCES_BONUS += checker_bonus/parsing_bonus/utils_for_create_tab_index.c
+SOURCES_BONUS += checker_bonus/get_next_line/get_next_line_utils.c
+SOURCES_BONUS += checker_bonus/get_next_line/get_next_line.c
+SOURCES_BONUS += checker_bonus/doubl_list_bonus/create_list.c
+SOURCES_BONUS += checker_bonus/doubl_list_bonus/list_utils.c
+SOURCES_BONUS += checker_bonus/commands_bonus/command_push.c
+SOURCES_BONUS += checker_bonus/commands_bonus/command_reverse.c
+SOURCES_BONUS += checker_bonus/commands_bonus/command_rotate.c
+SOURCES_BONUS += checker_bonus/commands_bonus/command_swap.c
 
 #Objets#####################################
 
