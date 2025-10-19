@@ -6,7 +6,7 @@
 #    By: amandine <amandine@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 00:07:50 by amandine          #+#    #+#              #
-#    Updated: 2025/10/18 18:54:48 by amandine         ###   ########.fr        #
+#    Updated: 2025/10/19 12:44:50 by amandine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -175,4 +175,4 @@ fclean_libft: clean_libft
 relibft: fclean_libft
 	$(MAKE) all_libft
 
-.PHONY : all re clean fclean fclean_libft clean_libft relibft all_libft
+.PHONY : all re clean fclean fclean_libft clean_libft relibft all_libft bonus re_bonus fclean_bonus
