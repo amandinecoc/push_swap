@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 09:13:48 by amandine          #+#    #+#             */
-/*   Updated: 2025/10/18 17:33:18 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/19 16:45:57 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ void	print_status(int status)
 	if (status == is_ERROR)
 		ft_putendl_fd("Error", 2);
 	if (status == is_KO)
-		ft_putendl_fd("KO", 2);
+		ft_putendl_fd("KO", 1);
 	if (status == is_OK)
-		ft_putendl_fd("OK", 2);
+		ft_putendl_fd("OK", 1);
 }
 
 int	main(int argc, char **argv)
@@ -89,6 +89,6 @@ int	main(int argc, char **argv)
 		return (print_status(status), status);
 	status = create_list_a(tab_str, status);
 	if (status == is_SORTED)
-		return (ft_putendl_fd("OK", 2), is_OK);
+		return (ft_putendl_fd("OK", 1), is_OK);
 	return (print_status(status), status);
 }

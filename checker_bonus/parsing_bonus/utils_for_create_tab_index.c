@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_for_create_tab_index.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amandine <amandine@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acocoual <acocoual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 11:15:20 by acocoual          #+#    #+#             */
-/*   Updated: 2025/10/18 17:18:12 by amandine         ###   ########.fr       */
+/*   Updated: 2025/10/19 16:45:41 by acocoual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	create_tab_str(int argc, char **argv, char ***tab_str)
 	free(str);
 	if (*tab_str == NULL)
 		return (is_ERROR);
-	return (status);
+	return (is_OK);
 }
