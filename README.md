@@ -12,7 +12,7 @@ Rendu : une liste de commande (ex : rra \n pb
 
 
 **1ere étape**
-Harmoniser ce qui est reçus
+Harmoniser ce qui est reçus (ex : transformé n'importe quel arguments en tableaux de char (en utilisant split))
 
 **2ème étape**
 Vérifier si les élements recus sont mauvais :
